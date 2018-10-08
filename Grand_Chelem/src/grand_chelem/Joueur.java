@@ -9,13 +9,4 @@ package grand_chelem;
  *
  * @author ISEN
  */
-public class Grand_Chelem {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-       
-    }
-    
-}
