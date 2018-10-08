@@ -9,4 +9,11 @@ package grand_chelem;
  *
  * @author ISEN
  */
-
+public class Joueur extends Personne
+{
+    char main;
+    String sponsor;
+    int classement;
+    String entraineur;
+    
+}
