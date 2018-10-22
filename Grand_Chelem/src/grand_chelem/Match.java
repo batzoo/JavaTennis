@@ -9,12 +9,7 @@ package grand_chelem;
  *
  * @author ISEN
  */
-public class StringException extends Exception {
-    StringException(String message){
-        super(message);
-    }
-    @Override
-    public String getMessage(){
-        return "!! Entrée invalide !!"+super.getMessage()+"!!!";
-    }
+public class Match {
+    String categorie;
+    Joueur 
 }

@@ -27,9 +27,5 @@ public class Joueur extends Personne
         this.classement=classement;
         this.entraineur=entraineur;
     }
-    public void PresentationJoueur(){
-        System.out.print("Bonjour je suis "+this.prenom+" "+this.nomNaissance+" né à "+this.lieuNaissance+" en");
-        dateNaissance.afficherDate();
-        System.out.println("je suis n°"+this.classement+" mondial");
-    }
+    
 }

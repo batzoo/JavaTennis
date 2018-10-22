@@ -17,9 +17,8 @@ public class Grand_Chelem {
     public static void main(String[] args) {
         Date naissance=new Date(25,01,1998);
         Date mort=new Date(15,12,2091);
-       Spectateur Bob=new Spectateur("Marley","Bob",'M',naissance,"Paris",mort,"Francais",185,75);
-       Bob.dormir();
-       Bob.crier();
+       Joueur_Femme bob= new Joueur_Femme("Marley","Bob",'M',naissance,"Paris",mort,"Francais",185,75,'R',"Nike",1,"Noah","Rouge");
+       bob.changementCouleur("bleu");
     }
     
 }

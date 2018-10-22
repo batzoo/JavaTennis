@@ -9,6 +9,11 @@ package grand_chelem;
  *
  * @author ISEN
  */
-public class Spec_Femme {
+public class Spec_Femme extends Spectateur {
+    String tenue;
+    public Spec_Femme(String nomNaissance, String prenom, char genre, Date dateNaissance, String lieuNaissance, Date dateDeces, String nationalite, int taille, float poids) {
+        super(nomNaissance, prenom, genre, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids);
+        this.tenue="Lunettes";
+    }
     
 }
