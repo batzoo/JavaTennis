@@ -17,7 +17,7 @@ public class Grand_Chelem {
     public static void main(String[] args) {
         Date naissance=new Date(25,01,1998);
         Date mort=new Date(15,12,2091);
-        Joueur_Homme jeanne= new Joueur_Homme("Federer","Roger",'F',naissance,"Paris",mort,"Francaise",185,75,'R',"Nike",1,"Noah","Rouge");
+        Joueur_Homme jeanne= new Joueur_Homme("Federer","Roger",'M',naissance,"Paris",mort,"Francaise",185,75,'R',"Nike",1,"Noah","Rouge");
         Joueur_Homme michelle= new Joueur_Homme("Savard","Bob",'M',naissance,"Paris",mort,"Francaise",185,75,'R',"Nike",3,"Noah","Rouge");
         Match Premier_tour=new Match(jeanne,michelle);
     }
