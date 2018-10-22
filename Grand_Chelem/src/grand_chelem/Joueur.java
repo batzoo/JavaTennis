@@ -27,5 +27,7 @@ public class Joueur extends Personne
         this.classement=classement;
         this.entraineur=entraineur;
     }
-    
+    public String nom_Prenom(){
+        return this.prenom+" "+this.nomNaissance;
+    }
 }
