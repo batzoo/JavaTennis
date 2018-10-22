@@ -15,7 +15,10 @@ public class Grand_Chelem {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       
+        Date naissance=new Date(25,01,1998);
+        Date mort=new Date(15,12,2091);
+       Joueur bleu=new Joueur("Marley","Bob",'M',naissance,"Paris",mort,"Francais",185,75,'a',"Nike",1,"Noah");
+       bleu.PresentationJoueur();
     }
     
 }

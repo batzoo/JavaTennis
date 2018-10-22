@@ -5,6 +5,8 @@
  */
 package grand_chelem;
 
+import java.util.InputMismatchException;
+
 /**
  *
  * @author ISEN
@@ -15,5 +17,19 @@ public class Joueur extends Personne
     String sponsor;
     int classement;
     String entraineur;
-    
+    public Joueur(String nomNaissance,String prenom ,
+                  char genre,Date dateNaissance,String lieuNaissance,
+                  Date dateDeces,String nationalite,int taille,float poids,
+                  char main,String sponsor,int classement,String entraineur){
+        super(nomNaissance,prenom,genre,dateNaissance,lieuNaissance,dateNaissance,nationalite,taille,poids);
+        this.main=main;
+        this.sponsor=sponsor;
+        this.classement=classement;
+        this.entraineur=entraineur;
+    }
+    public void PresentationJoueur(){
+        System.out.print("Bonjour je suis "+this.prenom+" "+this.nomNaissance+" né à "+this.lieuNaissance+" en");
+        dateNaissance.afficherDate();
+        System.out.println("je suis n°"+this.classement+" mondial");
+    }
 }
