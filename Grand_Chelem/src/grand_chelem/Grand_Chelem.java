@@ -21,7 +21,7 @@ public class Grand_Chelem {
         Joueur_Homme jeanne= new Joueur_Homme("Federer","Roger",'M',naissance,"Paris",mort,"Francaise",185,75,'R',"Nike",1,"Noah","Rouge");
         Joueur_Homme michelle= new Joueur_Homme("Savard","Bob",'M',naissance,"Paris",mort,"Francaise",185,75,'R',"Nike",3,"Noah","Rouge");
         Match Premier_tour=new Match(jeanne,michelle,paul);
-        Premier_tour.vainqueur_match(jeanne,michelle);
+        Premier_tour.vainqueur_match(jeanne, michelle);
     }
     
 }
