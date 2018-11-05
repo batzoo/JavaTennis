@@ -20,6 +20,7 @@ public abstract class Personne {
     protected String nationalite;
     protected int taille;
     protected float poids;
+    
     Personne(String nomNaissance,String prenom,
     char genre,Date dateNaissance,String lieuNaissance,
     Date dateDeces,String nationalite, int taille,float poids){
@@ -34,4 +35,56 @@ public abstract class Personne {
         this.poids=poids;
     }
     
+    /* Accesseurs */
+    public String getNomNaissance()
+    {
+        return this.nomNaissance;
+    }
+    
+    public String getNomCourant()
+    {
+        return this.nomCourant;
+    }
+    
+    public String getPrenom()
+    {
+        return this.prenom;
+    }
+    
+    public char getGenre()
+    {
+        return this.genre;
+    }
+    
+    public  Date getDateNaissance()
+    {
+        return this.dateNaissance;
+    }
+    
+    public  String getLieuNaissance()
+    {
+        return this.lieuNaissance;
+    }
+    
+    public  Date getDateDeces()
+    {
+        return this.dateDeces;
+    }
+    
+    public  String getNationalite()
+    {
+        return this.nationalite;
+    }
+    
+    public  int getTaille()
+    {
+        return this.taille;
+    }
+    
+    public  float getPoids()
+    {
+        return this.poids;
+    }
+    
+    /* Pas besoin de mutators étant donné qu'on n'a pas a changé les informations des personnes, juste les lires ! */
 }
