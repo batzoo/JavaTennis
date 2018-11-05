@@ -22,31 +22,33 @@ public class Echange {
     public boolean faute(){ 
         
         this.proba=Math.random() ;
-        return this.proba <= 0.3;
+        System.out.println(this.proba);
+        return this.proba <= 0.2;
+        
     }
 
-    public int vainqueur_point(){
+    public Joueur vainqueur_point(Joueur j1,Joueur j2){
         this.faute=faute();
         if (this.faute){
             this.faute=false;
             
         this.faute=faute();
         if (this.faute){
-            return 2;
+            return j2;
         }
-        }       
+        }
             while(!this.faute){
                 this.coup++;
+                System.out.println(this.coup);
                 this.faute=faute();
                 }
                 if(this.coup%2==1){
                     this.coup=0;
-                    return 1;
+                    return j1;
                 }
                 else{
                     this.coup=0;
-                    return 2;
+                    return j2;
                 }
             }
-        
-}
+    }

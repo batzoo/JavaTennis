@@ -49,7 +49,7 @@ public class Match extends Set{
     public Joueur vainqueur_match(Joueur j1,Joueur j2){
         int a;
         while(this.setsJ1<this.setGagnants&&this.setsJ2<this.setGagnants){
-            a=vainqueur_set();
+            a=vainqueur_set(j1,j2);
             if(a==1){
                 this.setsJ1++;
             }
