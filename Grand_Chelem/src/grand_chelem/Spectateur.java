@@ -12,9 +12,10 @@ package grand_chelem;
 public class Spectateur extends Personne{
 
     boolean etat=true;
-    public Spectateur(String nomNaissance, String prenom, char genre, Date dateNaissance, String lieuNaissance, Date dateDeces, String nationalite, int taille, float poids) {
+    public Spectateur(String nomNaissance, String prenom, char genre, DateTennis dateNaissance, String lieuNaissance, DateTennis dateDeces, String nationalite, int taille, float poids) {
         super(nomNaissance, prenom, genre, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids);
     }
+    
     public void crier(){
         if(this.etat==true){
         System.out.println("LET'S GO MA GUEUUUUUUUULE !!!!!!!!!");
@@ -24,6 +25,7 @@ public class Spectateur extends Personne{
                     + this.prenom+" dort !!");
         }
     }
+    
     public void huer(){
         if(this.etat==true){
         System.out.println("BOUUUUUUUUUUH TU PUUUUUES");
@@ -33,6 +35,7 @@ public class Spectateur extends Personne{
                     + this.prenom+" dort !!");
         }
     }
+    
     public void dormir(){
         this.etat=false;
     }

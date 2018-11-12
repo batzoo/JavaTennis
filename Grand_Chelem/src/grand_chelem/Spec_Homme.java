@@ -11,7 +11,7 @@ package grand_chelem;
  */
 public class Spec_Homme extends Spectateur {
     String tenue;
-    public Spec_Homme(String nomNaissance, String prenom, char genre, Date dateNaissance, String lieuNaissance, Date dateDeces, String nationalite, int taille, float poids) {
+    public Spec_Homme(String nomNaissance, String prenom, char genre, DateTennis dateNaissance, String lieuNaissance, DateTennis dateDeces, String nationalite, int taille, float poids) {
         super(nomNaissance, prenom, genre, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids);
         this.tenue="Chemise";
     }

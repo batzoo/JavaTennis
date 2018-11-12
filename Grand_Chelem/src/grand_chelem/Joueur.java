@@ -18,10 +18,10 @@ public class Joueur extends Personne
     int classement;
     String entraineur;
     public Joueur(String nomNaissance,String prenom ,
-                  char genre,Date dateNaissance,String lieuNaissance,
-                  Date dateDeces,String nationalite,int taille,float poids,
+                  char genre,DateTennis dateNaissance,String lieuNaissance,
+                  DateTennis dateDeces,String nationalite,int taille,float poids,
                   char main,String sponsor,int classement,String entraineur){
-        super(nomNaissance,prenom,genre,dateNaissance,lieuNaissance,dateNaissance,nationalite,taille,poids);
+        super(nomNaissance,prenom,genre,dateNaissance,lieuNaissance,dateDeces,nationalite,taille,poids);
         this.main=main;
         this.sponsor=sponsor;
         this.classement=classement;
