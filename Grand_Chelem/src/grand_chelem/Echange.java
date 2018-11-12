@@ -23,12 +23,12 @@ public class Echange {
         
         this.proba=Math.random() ;
         System.out.println(this.proba);
-        return this.proba <= 0.2;
+        return this.proba <= 0.1;
         
     }
 
     public Joueur vainqueur_point(Joueur j1,Joueur j2){
-        this.faute=faute();
+        /*this.faute=faute();
         if (this.faute){
             this.faute=false;
             
@@ -36,19 +36,23 @@ public class Echange {
         if (this.faute){
             return j2;
         }
-        }
+        }*/
             while(!this.faute){
                 this.coup++;
+                
                 System.out.println(this.coup);
                 this.faute=faute();
+                System.out.println("faute ? "+this.faute);
                 }
-                if(this.coup%2==1){
-                    this.coup=0;
-                    return j1;
-                }
-                else{
-                    this.coup=0;
-                    return j2;
-                }
+            if(this.coup%2==0){
+                this.coup=0;
+                this.faute=false;
+                return j1;
             }
+            else{
+                this.coup=0;
+                this.faute=false;
+                return j2;
+            }
+        }
     }

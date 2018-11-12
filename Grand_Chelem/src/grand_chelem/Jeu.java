@@ -53,7 +53,7 @@ public class Jeu extends Echange {
            case 3: 
                return 40;
            default:
-               return 50;
+               return 0;
        }
               
    }
