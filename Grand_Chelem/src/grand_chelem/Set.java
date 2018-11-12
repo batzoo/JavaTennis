@@ -16,11 +16,12 @@ public class Set extends Jeu {
         this.jeuxJ1=0;
         this.jeuxJ2=0;
     }
-   public int vainqueur_set(){
-       int a;
+   public int vainqueur_set(Joueur j1,Joueur j2){
+        int a;
        while(this.jeuxJ1<6 &&this.jeuxJ2<6&&!(this.jeuxJ1==5&&this.jeuxJ2==5)){ 
            System.out.println("Jeux : "+this.jeuxJ1+" "+this.jeuxJ2);
-           a=vainqueur_jeu();
+           a=vainqueur_jeu(j1,j2);
+           
        if(a==1){
            this.jeuxJ1++;
        }
