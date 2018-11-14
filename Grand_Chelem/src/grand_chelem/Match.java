@@ -47,13 +47,13 @@ public class Match extends Set{
         System.out.println("Le match se jouera en "+this.setGagnants+" sets gagnants");
     }
     public Joueur vainqueur_match(Joueur j1,Joueur j2){
-        int a;
+        Joueur a;
         while(this.setsJ1<this.setGagnants&&this.setsJ2<this.setGagnants){
             a=vainqueur_set(j1,j2);
-            if(a==1){
+            if(a==j1){
                 this.setsJ1++;
             }
-            else if(a==2){
+            else if(a==j2){
                 this.setsJ2++;
             }
             

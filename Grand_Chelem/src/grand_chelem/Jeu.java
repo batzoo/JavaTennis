@@ -17,10 +17,11 @@ public class Jeu extends Echange {
         this.ptsJ1=0;
         this.ptsJ2=0;
     }
-    public int vainqueur_jeu(Joueur j1,Joueur j2){
+    public Joueur vainqueur_jeu(Joueur j1,Joueur j2){
         Joueur a;
        while(this.ptsJ1<4&&this.ptsJ2<4&&!(this.ptsJ1==3&&this.ptsJ2==3)){
            a=vainqueur_point(j1,j2);
+           System.out.println(a.prenom);
            if(a==j1){
                this.ptsJ1++;
            }
@@ -33,12 +34,15 @@ public class Jeu extends Echange {
        if(this.ptsJ1==4){
            this.ptsJ1=0;
            this.ptsJ2=0;
-           return 1;
+           return j1;
        }
-       else {
+       else if(this.ptsJ2==4){
            this.ptsJ1=0;
            this.ptsJ2=0;
-           return 2;
+           return j2;
+       }
+       else{
+           return avantage(j1,j2);
        }
        
 
@@ -57,8 +61,8 @@ public class Jeu extends Echange {
        }
               
    }
-   public int avantage(Joueur j1,Joueur j2){
-      
+   public Joueur avantage(Joueur j1,Joueur j2){
+       System.out.println("AVANTAGE");
        Joueur a;
        while(this.ptsJ1<5&&this.ptsJ2<5&&!(this.ptsJ1==4&&this.ptsJ2==4)){
            a=vainqueur_point(j1,j2);
@@ -70,16 +74,21 @@ public class Jeu extends Echange {
            }
            System.out.println(score(this.ptsJ1)+"/"+score(this.ptsJ2));
            }
-        if(this.ptsJ1==4&&this.ptsJ2==4){
+        
+           if(this.ptsJ1==5){
+               this.ptsJ1=0;
+               this.ptsJ2=0;
+               return j1;
+           }
+           else if(this.ptsJ2==5){
+               this.ptsJ1=0;
+               this.ptsJ2=0;
+               return j2;
+       }
+           else{
                this.ptsJ1--;
                this.ptsJ2--;
-               return 0;
+               return avantage(j1,j2);
            }
-           else if(this.ptsJ1==5){
-               return 1;
-           }
-           else{
-               return 2;
-       }
    }
 }
