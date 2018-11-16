@@ -7,9 +7,14 @@ package grand_chelem;
 
 /**
  *
- * @author ISEN
+ * @author Baptiste Delpierre/Giovanni Haddadi
  */
 public class Echange {
+    /**
+     * @param proba variable tampon servant à déterminer s'il y a faute ou non
+     * @param faute variable boolean : true s'il y af aute, et false s'il n'y a pas faute
+     * @param coup numéro du coup dans l'échange 
+     */
     double proba;
     boolean faute;
     int coup;
@@ -18,14 +23,22 @@ public class Echange {
         this.coup=0;
         this.proba=0;
     }
-    
+    /** 
+     * 
+     * @return un boolean indiquant s'il y a faute
+     */
     public boolean faute(){ 
         
         this.proba=Math.random() ;
         return this.proba <= 0.1;
         
     }
-
+    /**
+     * 
+     * @param j1 Joueur 1 du match 
+     * @param j2 Joueur 2 du match
+     * @return vainqueur du point simulé
+     */
     public Joueur vainqueur_point(Joueur j1,Joueur j2){
         this.faute=faute();
         if (this.faute){

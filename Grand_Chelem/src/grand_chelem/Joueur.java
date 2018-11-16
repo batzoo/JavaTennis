@@ -9,10 +9,14 @@ import java.util.InputMismatchException;
 
 /**
  *
- * @author ISEN
+ * @author Baptiste Delpierre/Giovanni Haddadi
  */
 public class Joueur extends Personne
 {
+    /**
+     * @param main D pour droitier G pour gaucher
+     * 
+     */
     char main;
     String sponsor;
     int classement;
@@ -27,6 +31,10 @@ public class Joueur extends Personne
         this.classement=classement;
         this.entraineur=entraineur;
     }
+    /**
+     * 
+     * @return Le nom et prénom du joueur séparés d'un espace
+     */
     public String nom_Prenom(){
         return this.prenom+" "+this.nomNaissance;
     }

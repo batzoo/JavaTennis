@@ -7,7 +7,7 @@ package grand_chelem;
 
 /**
  *
- * @author ISEN
+ * @author Baptiste Delpierre/Giovanni Haddadi
  */
 public class Joueur_Homme extends Joueur {
     String couleur;
@@ -18,10 +18,20 @@ public class Joueur_Homme extends Joueur {
         this.tenue="Short"+this.couleur;
         PresentationJoueur_H();
     }
+    /**
+     * 
+     * @param couleur Couleur du short 
+     * @return le changement de couleur du short du joueur
+     * 
+     */
     public void changementCouleur(String couleur){
         this.couleur=couleur;
         System.out.println("Mon short a changé de couleur, il est "+couleur+" maintenant ! :)");
     }
+    /** 
+     * Présente le joueur dans la console : 
+     * Prenom, nom, date et lieu de naissance, couleur du short et classement
+     */
     public void PresentationJoueur_H(){
         System.out.print("Bonjour je suis "+super.prenom+" "+super.nomNaissance+" né à "+super.lieuNaissance+" en ");
         dateNaissance.afficherDate();

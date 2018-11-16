@@ -7,7 +7,7 @@ package grand_chelem;
 
 /**
  *
- * @author ISEN
+ * @author Baptiste Delpierre/Giovanni Haddadi
  */
 public class Joueur_Femme extends Joueur{
     String couleur;
@@ -18,10 +18,19 @@ public class Joueur_Femme extends Joueur{
         this.tenue="Jupe"+this.couleur;
         PresentationJoueur_F();
     }
+    /**
+     * 
+     * @param couleur Couleur de la jupe de la joueuse 
+     */
     public void changementCouleur(String couleur){
         this.couleur=couleur;
         System.out.println("Ma jupe a changé de couleur, elle est "+couleur+" maintenant ! :)");
     }
+    /**
+     * Fonction présentant la joueuse dans la console
+     * avec le nom, prenom, date de naissance, lieu de naissance ,
+     * la couleur de la jupe,et le classement
+     */
     public void PresentationJoueur_F(){
         System.out.print("Bonjour je suis "+this.prenom+" "+this.nomNaissance+" née à "+this.lieuNaissance+" en");
         dateNaissance.afficherDate();

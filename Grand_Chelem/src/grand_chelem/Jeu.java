@@ -10,13 +10,21 @@ package grand_chelem;
  * @author ISEN
  */
 public class Jeu extends Echange {
+    /** 
+     * @param ptsJ1 le nombre de points du Joueur 1 pendant le jeu
+     * @param ptsJ2 le nombre de points du Joueur 2 pendant le jeu
+     */
     int ptsJ1;
     int ptsJ2;
-    int c=0;
     public Jeu(){
         this.ptsJ1=0;
         this.ptsJ2=0;
     }
+    /** 
+     * @param j1 Joueur 1 du match
+     * @param j2 Joueur 2 du match
+     * @return Vainqueur du jeu, utilise la fonction vainqueur_point 
+     */
     public Joueur vainqueur_jeu(Joueur j1,Joueur j2){
         Joueur a;
        while(this.ptsJ1<4&&this.ptsJ2<4&&!(this.ptsJ1==3&&this.ptsJ2==3)){
@@ -47,7 +55,11 @@ public class Jeu extends Echange {
        
 
     }
-    
+    /**
+     * 
+     * @param score Score actuel du jeu (0,1,2,3,4)
+     * @return le score actuel au "format tennis" (0,15,30,40)
+     */
    public int score(int score){
        switch (score){
            case 1:
@@ -61,6 +73,12 @@ public class Jeu extends Echange {
        }
               
    }
+   /** 
+    * 
+    * @param j1
+    * @param j2
+    * @return le vainqueur du jeu en cas d'égalité 
+    */
    public Joueur avantage(Joueur j1,Joueur j2){
        System.out.println("AVANTAGE");
        Joueur a;

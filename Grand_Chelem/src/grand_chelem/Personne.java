@@ -10,6 +10,7 @@ package grand_chelem;
  * @author ISEN
  */
 public abstract class Personne {
+    
     protected String nomNaissance;
     protected String nomCourant;
     protected String prenom;
@@ -20,7 +21,20 @@ public abstract class Personne {
     protected String nationalite;
     protected int taille;
     protected float poids;
-    
+    /**
+     * 
+     * @param nomNaissance 
+     *          nom de famille de naissance
+     * @param prenom
+     * @param genre
+     * @param dateNaissance
+     * @param lieuNaissance
+     * @param dateDeces
+     *          la date de décès est prédéfinie lors de la création de la personne
+     * @param nationalite
+     * @param taille
+     * @param poids 
+     */
     Personne(String nomNaissance,String prenom,
     char genre,Date dateNaissance,String lieuNaissance,
     Date dateDeces,String nationalite, int taille,float poids){
@@ -86,5 +100,5 @@ public abstract class Personne {
         return this.poids;
     }
     
-    /* Pas besoin de mutators étant donné qu'on n'a pas a changé les informations des personnes, juste les lires ! */
+    /** Pas besoin de mutators étant donné qu'on n'a pas a changé les informations des personnes, juste les lires ! */
 }

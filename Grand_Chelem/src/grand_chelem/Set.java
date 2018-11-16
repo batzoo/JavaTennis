@@ -9,7 +9,7 @@ import static java.lang.Math.abs;
 
 /**
  *
- * @author ISEN
+ * @author Baptiste Delpierre/Giovanni Haddadi
  */
 public class Set extends Jeu {
     int jeuxJ1;
@@ -18,6 +18,12 @@ public class Set extends Jeu {
         this.jeuxJ1=0;
         this.jeuxJ2=0;
     }
+    /** 
+     * 
+     * @param j1 Joueur 1 du match
+     * @param j2 Joueur 2 du match
+     * @return le vainqueur du set (appelle vainqueur_jeu de la classe Jeu)
+     */
    public Joueur vainqueur_set(Joueur j1,Joueur j2){
        Joueur a;
        while(this.jeuxJ1<6 &&this.jeuxJ2<6&&!(this.jeuxJ1==5&&this.jeuxJ2==5)){ 
@@ -48,9 +54,10 @@ public class Set extends Jeu {
            return jeux_decart(j1,j2);
        }
     }
-   public Joueur set_final(Joueur j1,Joueur j2){
-       
-   }
+   /**
+    * 
+    * @return le vainqueur du set en cas de 5/5
+    */
    public Joueur jeux_decart(Joueur j1,Joueur j2){
        Joueur a;
        while(this.jeuxJ1<7&&this.jeuxJ2<7&&!(this.jeuxJ1==6&&this.jeuxJ2==6)){
@@ -79,6 +86,10 @@ public class Set extends Jeu {
        }
        
    }
+   /** 
+    * 
+    * @return le vainqueur du tiebreak en cas de 6-6
+    */
    public Joueur tiebreak(Joueur j1,Joueur j2){
        int a=0;
        int b=0;

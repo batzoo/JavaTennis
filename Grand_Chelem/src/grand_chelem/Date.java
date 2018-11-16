@@ -7,7 +7,7 @@ package grand_chelem;
 
 /**
  *
- * @author ISEN
+ * @author Baptiste Delpierre/Giovanni Haddadi
  */
 public class Date {
     private int jour;
@@ -18,6 +18,9 @@ public class Date {
         this.mois=mois;
         this.annee=annee;
     }
+    /** 
+     * Accessors  
+     */
     public int getJour(){
         return this.jour;
     }
@@ -27,6 +30,9 @@ public class Date {
     public int getAnnee(){
         return this.annee;
     }
+    /**
+     * Affiche la date
+     */
     public void afficherDate(){
         System.out.println(this.getJour()+"/"+this.getMois()+"/"+this.getAnnee());
     }

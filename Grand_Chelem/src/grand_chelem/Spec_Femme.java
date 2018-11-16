@@ -7,7 +7,7 @@ package grand_chelem;
 
 /**
  *
- * @author ISEN
+ * @author Baptiste Delpierre/Giovanni Haddadi
  */
 public class Spec_Femme extends Spectateur {
     String tenue;
