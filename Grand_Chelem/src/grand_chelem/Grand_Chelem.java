@@ -16,13 +16,7 @@ public class Grand_Chelem {
      */
     public static void main(String[] args) {
         Tournoi rolandGarros=new Tournoi();
-        rolandGarros.premierTourHommes();
-        rolandGarros.deuxiemeTourHommes();
-        rolandGarros.troisiemeTourHommes();
-        rolandGarros.huitiemesHommes();
-        rolandGarros.quartsHommes();
-        rolandGarros.demisHommes();
-        rolandGarros.finale();
+        rolandGarros.tournoi();
     }
     
 }

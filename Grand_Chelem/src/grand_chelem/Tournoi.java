@@ -29,8 +29,11 @@ public class Tournoi {
     Joueur_Homme vainqueur;
     String lieuTournoi;
     String surface;
+    
     public Tournoi() {
+        //Joueur tampon
         Joueur_Homme a;
+        
         this.premier_tour = new ArrayList<>();
         for(int i=1;i<129;i++){
             a=new Joueur_Homme('M',i);
@@ -129,5 +132,15 @@ public class Tournoi {
             this.vainqueur=this.matchs.vainqueur_match_H(this.matchs.joueur1,this.matchs.joueur2);
         
         System.out.println("Le vainqueur du tournoi de "+this.lieuTournoi+" est : "+this.vainqueur.nom_Prenom());
+    }
+    public void tournoi(){
+        this.premierTourHommes();
+        this.deuxiemeTourHommes();
+        this.troisiemeTourHommes();
+        this.huitiemesHommes();
+        this.quartsHommes();
+        this.demisHommes();
+        this.finale();
+        
     }
 }

@@ -5,11 +5,14 @@
  */
 package grand_chelem;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ISEN
  */
 public class Match extends Set{
+    public ArrayList<Spectateur> gradins=new ArrayList<>();
     public String categorie;
     public Joueur_Homme joueur1;
     public Joueur_Homme joueur2;
@@ -27,12 +30,24 @@ public class Match extends Set{
      * Match femme --> Sets gagnants = 2
      */
     public Match(Joueur_Homme joueur1,Joueur_Homme joueur2,Arbitre arbitre){
+        Spectateur a;
+        int z;
         this.joueur1=joueur1;
         this.joueur2=joueur2;
         this.arbitre=arbitre;
         this.categorie="Simple Hommes";
         this.setGagnants=3;
         presentationMatch();
+        for (int i=0;i<100;i++){
+            z=(int)(Math.random()*2);
+            if(z==0){
+                a=new Spec_Homme('H');
+            }
+            else{
+                a=new Spec_Femme('F');
+            }
+            this.gradins.add(a);
+        }
     }
     /*public Match(Joueur_Femme joueur1,Joueur_Femme joueur2,Arbitre arbitre){
         this.joueur1=joueur1;
