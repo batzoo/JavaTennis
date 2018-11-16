@@ -26,6 +26,9 @@ public class Arbitre extends Personne {
         super(nomNaissance, prenom, genre, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids);
     } 
     
+    public Arbitre(char genre){
+        super(genre);
+    }
     public void annonceScore(){
         
     }

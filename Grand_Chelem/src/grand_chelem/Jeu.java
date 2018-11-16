@@ -25,11 +25,10 @@ public class Jeu extends Echange {
      * @param j2 Joueur 2 du match
      * @return Vainqueur du jeu, utilise la fonction vainqueur_point 
      */
-    public Joueur vainqueur_jeu(Joueur j1,Joueur j2){
-        Joueur a;
+    public Joueur_Homme vainqueur_jeu_H(Joueur_Homme j1,Joueur_Homme j2){
+        Joueur_Homme a;
        while(this.ptsJ1<4&&this.ptsJ2<4&&!(this.ptsJ1==3&&this.ptsJ2==3)){
-           a=vainqueur_point(j1,j2);
-           System.out.println(a.prenom);
+           a=vainqueur_point_H(j1,j2);
            if(a==j1){
                this.ptsJ1++;
            }
@@ -37,7 +36,7 @@ public class Jeu extends Echange {
                this.ptsJ2++;
            }
           
-           System.out.println("Pts : "+score(this.ptsJ1)+"/"+score(this.ptsJ2));
+           //System.out.println("Pts : "+score(this.ptsJ1)+"/"+score(this.ptsJ2));
        }
        if(this.ptsJ1==4){
            this.ptsJ1=0;
@@ -79,18 +78,18 @@ public class Jeu extends Echange {
     * @param j2
     * @return le vainqueur du jeu en cas d'égalité 
     */
-   public Joueur avantage(Joueur j1,Joueur j2){
-       System.out.println("AVANTAGE");
-       Joueur a;
+   public Joueur_Homme avantage(Joueur_Homme j1,Joueur_Homme j2){
+       //System.out.println("AVANTAGE");
+       Joueur_Homme a;
        while(this.ptsJ1<5&&this.ptsJ2<5&&!(this.ptsJ1==4&&this.ptsJ2==4)){
-           a=vainqueur_point(j1,j2);
+           a=vainqueur_point_H(j1,j2);
            if(a==j1){
                this.ptsJ1++;
            }
            else{
               this.ptsJ2++;
            }
-           System.out.println(score(this.ptsJ1)+"/"+score(this.ptsJ2));
+           //System.out.println(score(this.ptsJ1)+"/"+score(this.ptsJ2));
            }
         
            if(this.ptsJ1==5){

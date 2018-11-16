@@ -24,11 +24,11 @@ public class Set extends Jeu {
      * @param j2 Joueur 2 du match
      * @return le vainqueur du set (appelle vainqueur_jeu de la classe Jeu)
      */
-   public Joueur vainqueur_set(Joueur j1,Joueur j2){
-       Joueur a;
+   public Joueur_Homme vainqueur_set_H(Joueur_Homme j1,Joueur_Homme j2){
+       Joueur_Homme a;
        while(this.jeuxJ1<6 &&this.jeuxJ2<6&&!(this.jeuxJ1==5&&this.jeuxJ2==5)){ 
            System.out.println("Jeux : "+this.jeuxJ1+" "+this.jeuxJ2);
-           a=vainqueur_jeu(j1,j2);
+           a=vainqueur_jeu_H(j1,j2);
        
            if(a==j1){
                this.jeuxJ1++;
@@ -51,17 +51,17 @@ public class Set extends Jeu {
            return j2;
        }
        else{
-           return jeux_decart(j1,j2);
+           return jeux_decart_H(j1,j2);
        }
     }
    /**
     * 
     * @return le vainqueur du set en cas de 5/5
     */
-   public Joueur jeux_decart(Joueur j1,Joueur j2){
-       Joueur a;
+   public Joueur_Homme jeux_decart_H(Joueur_Homme j1,Joueur_Homme j2){
+       Joueur_Homme a;
        while(this.jeuxJ1<7&&this.jeuxJ2<7&&!(this.jeuxJ1==6&&this.jeuxJ2==6)){
-           a=vainqueur_jeu(j1,j2);
+           a=vainqueur_jeu_H(j1,j2);
            if(a==j1){
                this.jeuxJ1++;
        }
@@ -90,12 +90,12 @@ public class Set extends Jeu {
     * 
     * @return le vainqueur du tiebreak en cas de 6-6
     */
-   public Joueur tiebreak(Joueur j1,Joueur j2){
+   public Joueur_Homme tiebreak(Joueur_Homme j1,Joueur_Homme j2){
        int a=0;
        int b=0;
-       Joueur c;
+       Joueur_Homme c;
        while((a<7&&b<7)||abs(a-b)<2){
-           c=vainqueur_point(j1,j2);
+           c=vainqueur_point_H(j1,j2);
            if(c==j1){
                a++;
            }

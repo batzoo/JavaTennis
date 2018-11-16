@@ -11,8 +11,8 @@ package grand_chelem;
  */
 public class Match extends Set{
     public String categorie;
-    public Joueur joueur1;
-    public Joueur joueur2;
+    public Joueur_Homme joueur1;
+    public Joueur_Homme joueur2;
     public Arbitre arbitre;
     int setGagnants;
     int tour;
@@ -34,7 +34,7 @@ public class Match extends Set{
         this.setGagnants=3;
         presentationMatch();
     }
-    public Match(Joueur_Femme joueur1,Joueur_Femme joueur2,Arbitre arbitre){
+    /*public Match(Joueur_Femme joueur1,Joueur_Femme joueur2,Arbitre arbitre){
         this.joueur1=joueur1;
         this.joueur2=joueur2;
         this.arbitre=arbitre;
@@ -44,7 +44,7 @@ public class Match extends Set{
         this.setsJ2=0;
         
         presentationMatch();
-    }
+    }*/
     /**
      * 
      * @param duel Match en cours 
@@ -69,10 +69,10 @@ public class Match extends Set{
      * @param j2 Joueur 2 du match
      * @return Le vainqueur du match (utilise la fonction vainqueur_set)
      */
-    public Joueur vainqueur_match(Joueur j1,Joueur j2){
-        Joueur a;
+    public Joueur_Homme vainqueur_match_H(Joueur_Homme j1,Joueur_Homme j2){
+        Joueur_Homme a;
         while(this.setsJ1<this.setGagnants&&this.setsJ2<this.setGagnants){
-            a=vainqueur_set(j1,j2);
+            a=vainqueur_set_H(j1,j2);
             if(a==j1){
                 
                 this.setsJ1++;
