@@ -7,19 +7,43 @@ package grand_chelem;
 
 /**
  *
- * @author Giovanni
+ * @author Giovanni Haddadi/Baptiste Delpierre
  */
 public class Arbitre extends Personne {
+<<<<<<< HEAD
     
     public Arbitre(String nomNaissance, String prenom, char genre, DateTennis dateNaissance, String lieuNaissance, DateTennis dateDeces, String nationalite, int taille, float poids) {
+=======
+    /**
+     * Constructor
+     * @param nomNaissance
+     * @param prenom
+     * @param genre
+     * @param dateNaissance
+     * @param lieuNaissance
+     * @param dateDeces
+     * @param nationalite
+     * @param taille
+     * @param poids 
+     */
+    public Arbitre(String nomNaissance, String prenom, char genre, Date dateNaissance, String lieuNaissance, Date dateDeces, String nationalite, int taille, float poids) {
+>>>>>>> osef
         super(nomNaissance, prenom, genre, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids);
+    } 
+    
+    public Arbitre(char genre){
+        super(genre);
     }
     public void annonceScore(){
         
     }
+    
     public void faute(){
         
     }
+    /** En cas de litige, fonction qui retourne la décision de l'arbitre
+     * 
+     */
     public void decision(){
         
     }

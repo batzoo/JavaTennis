@@ -7,7 +7,7 @@ package grand_chelem;
 
 /**
  *
- * @author ISEN
+ * @author Baptiste Delpierre/Giovanni Haddadi
  */
 public class Spec_Femme extends Spectateur {
     String tenue;
@@ -15,5 +15,8 @@ public class Spec_Femme extends Spectateur {
         super(nomNaissance, prenom, genre, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids);
         this.tenue="Lunettes";
     }
-    
+    public Spec_Femme(char genre){
+        super(genre);
+        this.tenue="Lunettes";
+    }
 }

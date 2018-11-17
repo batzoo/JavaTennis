@@ -10,17 +10,25 @@ package grand_chelem;
  * @author ISEN
  */
 public class Jeu extends Echange {
+    /** 
+     * @param ptsJ1 le nombre de points du Joueur 1 pendant le jeu
+     * @param ptsJ2 le nombre de points du Joueur 2 pendant le jeu
+     */
     int ptsJ1;
     int ptsJ2;
-    int c=0;
     public Jeu(){
         this.ptsJ1=0;
         this.ptsJ2=0;
     }
-    public int vainqueur_jeu(Joueur j1,Joueur j2){
-        Joueur a;
+    /** 
+     * @param j1 Joueur 1 du match
+     * @param j2 Joueur 2 du match
+     * @return Vainqueur du jeu, utilise la fonction vainqueur_point 
+     */
+    public Joueur_Homme vainqueur_jeu_H(Joueur_Homme j1,Joueur_Homme j2){
+        Joueur_Homme a;
        while(this.ptsJ1<4&&this.ptsJ2<4&&!(this.ptsJ1==3&&this.ptsJ2==3)){
-           a=vainqueur_point(j1,j2);
+           a=vainqueur_point_H(j1,j2);
            if(a==j1){
                this.ptsJ1++;
            }
@@ -28,22 +36,29 @@ public class Jeu extends Echange {
                this.ptsJ2++;
            }
           
-           System.out.println("Pts : "+score(this.ptsJ1)+"/"+score(this.ptsJ2));
+           //System.out.println("Pts : "+score(this.ptsJ1)+"/"+score(this.ptsJ2));
        }
        if(this.ptsJ1==4){
            this.ptsJ1=0;
            this.ptsJ2=0;
-           return 1;
+           return j1;
        }
-       else {
+       else if(this.ptsJ2==4){
            this.ptsJ1=0;
            this.ptsJ2=0;
-           return 2;
+           return j2;
+       }
+       else{
+           return avantage(j1,j2);
        }
        
 
     }
-    
+    /**
+     * 
+     * @param score Score actuel du jeu (0,1,2,3,4)
+     * @return le score actuel au "format tennis" (0,15,30,40)
+     */
    public int score(int score){
        switch (score){
            case 1:
@@ -53,33 +68,44 @@ public class Jeu extends Echange {
            case 3: 
                return 40;
            default:
-               return 50;
+               return 0;
        }
               
    }
-   public int avantage(Joueur j1,Joueur j2){
-      
-       Joueur a;
+   /** 
+    * 
+    * @param j1
+    * @param j2
+    * @return le vainqueur du jeu en cas d'égalité 
+    */
+   public Joueur_Homme avantage(Joueur_Homme j1,Joueur_Homme j2){
+       //System.out.println("AVANTAGE");
+       Joueur_Homme a;
        while(this.ptsJ1<5&&this.ptsJ2<5&&!(this.ptsJ1==4&&this.ptsJ2==4)){
-           a=vainqueur_point(j1,j2);
+           a=vainqueur_point_H(j1,j2);
            if(a==j1){
                this.ptsJ1++;
            }
            else{
               this.ptsJ2++;
            }
-           System.out.println(score(this.ptsJ1)+"/"+score(this.ptsJ2));
+           //System.out.println(score(this.ptsJ1)+"/"+score(this.ptsJ2));
            }
-        if(this.ptsJ1==4&&this.ptsJ2==4){
+        
+           if(this.ptsJ1==5){
+               this.ptsJ1=0;
+               this.ptsJ2=0;
+               return j1;
+           }
+           else if(this.ptsJ2==5){
+               this.ptsJ1=0;
+               this.ptsJ2=0;
+               return j2;
+       }
+           else{
                this.ptsJ1--;
                this.ptsJ2--;
-               return 0;
+               return avantage(j1,j2);
            }
-           else if(this.ptsJ1==5){
-               return 1;
-           }
-           else{
-               return 2;
-       }
    }
 }
