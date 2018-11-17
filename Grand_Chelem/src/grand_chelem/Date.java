@@ -7,16 +7,6 @@ package grand_chelem;
 
 /**
  *
-<<<<<<< HEAD:Grand_Chelem/src/grand_chelem/DateTennis.java
- * @author ISEN
- */
-public class DateTennis {
-    protected int jour;
-    protected int mois;
-    protected int annee;
-    
-    public DateTennis(int jour,int mois,int annee){
-=======
  * @author Baptiste Delpierre/Giovanni Haddadi
  */
 public class Date {
@@ -24,13 +14,10 @@ public class Date {
     private int mois;
     private int annee;
     public Date(int jour,int mois,int annee){
->>>>>>> osef:Grand_Chelem/src/grand_chelem/Date.java
         this.jour=jour;
         this.mois=mois;
         this.annee=annee;
     }
-<<<<<<< HEAD:Grand_Chelem/src/grand_chelem/DateTennis.java
-=======
     public Date(){
         this.jour=0;
         this.mois=0;
@@ -39,7 +26,6 @@ public class Date {
     /** 
      * Accessors  
      */
->>>>>>> osef:Grand_Chelem/src/grand_chelem/Date.java
     public int getJour(){
         return this.jour;
     }
@@ -49,10 +35,6 @@ public class Date {
     public int getAnnee(){
         return this.annee;
     }
-<<<<<<< HEAD:Grand_Chelem/src/grand_chelem/DateTennis.java
-    public void afficherDate(){
-        System.out.print(this.getJour()+"/"+this.getMois()+"/"+this.getAnnee());
-=======
     /**
      * Affiche la date
      */
@@ -74,6 +56,5 @@ public class Date {
             this.jour=(int) (Math.random() * 30)+1;
         }
         return this;
->>>>>>> osef:Grand_Chelem/src/grand_chelem/Date.java
     }
 }

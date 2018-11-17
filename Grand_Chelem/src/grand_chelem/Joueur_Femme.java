@@ -12,18 +12,10 @@ package grand_chelem;
 public class Joueur_Femme extends Joueur{
     
     String tenue;
-<<<<<<< HEAD
-    public Joueur_Femme(String nomNaissance, String prenom, char genre, DateTennis dateNaissance, String lieuNaissance, DateTennis dateDeces, String nationalite, int taille, float poids, char main, String sponsor, int classement, String entraineur,String couleur) {
-        super(nomNaissance, prenom, genre, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids, main, sponsor, classement, entraineur);
-        this.couleur=couleur;
-        this.tenue="Jupe"+this.couleur;
-        PresentationJoueur_F();
-=======
     public Joueur_Femme(String nomNaissance, String prenom, char genre, Date dateNaissance, String lieuNaissance, Date dateDeces, String nationalite, int taille, float poids, char main, String sponsor, int classement, String entraineur,String couleur) {
         super(nomNaissance, prenom, genre, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids, main, sponsor, classement, entraineur,couleur);
         this.tenue="Jupe"+super.couleur;
         //resentationJoueur_F();
->>>>>>> osef
     }
     public Joueur_Femme(char genre, int classement){
         super(genre,classement);

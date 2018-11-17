@@ -25,17 +25,10 @@ public class Joueur extends Personne
     String couleur;
     //Construcor pour Joueur avec comme paramètres les différents attributs
     public Joueur(String nomNaissance,String prenom ,
-<<<<<<< HEAD
-                  char genre,DateTennis dateNaissance,String lieuNaissance,
-                  DateTennis dateDeces,String nationalite,int taille,float poids,
-                  char main,String sponsor,int classement,String entraineur){
-        super(nomNaissance,prenom,genre,dateNaissance,lieuNaissance,dateDeces,nationalite,taille,poids);
-=======
                   char genre,Date dateNaissance,String lieuNaissance,
                   Date dateDeces,String nationalite,int taille,float poids,
                   char main,String sponsor,int classement,String entraineur,String couleur){
         super(nomNaissance,prenom,genre,dateNaissance,lieuNaissance,dateNaissance,nationalite,taille,poids);
->>>>>>> osef
         this.main=main;
         this.sponsor=sponsor;
         this.classement=classement;

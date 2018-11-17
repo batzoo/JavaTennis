@@ -10,10 +10,6 @@ package grand_chelem;
  * @author Giovanni Haddadi/Baptiste Delpierre
  */
 public class Arbitre extends Personne {
-<<<<<<< HEAD
-    
-    public Arbitre(String nomNaissance, String prenom, char genre, DateTennis dateNaissance, String lieuNaissance, DateTennis dateDeces, String nationalite, int taille, float poids) {
-=======
     /**
      * Constructor
      * @param nomNaissance
@@ -27,7 +23,6 @@ public class Arbitre extends Personne {
      * @param poids 
      */
     public Arbitre(String nomNaissance, String prenom, char genre, Date dateNaissance, String lieuNaissance, Date dateDeces, String nationalite, int taille, float poids) {
->>>>>>> osef
         super(nomNaissance, prenom, genre, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids);
     } 
     
