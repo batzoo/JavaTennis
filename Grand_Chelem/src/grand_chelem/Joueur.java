@@ -21,7 +21,7 @@ public class Joueur extends Personne
     String sponsor;
     int classement;
     String entraineur;
-    private char genre;
+    char genre;
     String couleur;
     //Construcor pour Joueur avec comme paramètres les différents attributs
     public Joueur(String nomNaissance,String prenom ,

@@ -14,8 +14,9 @@ import java.util.ArrayList;
 public class Match extends Set{
     public ArrayList<Spectateur> gradins=new ArrayList<>();
     public String categorie;
-    public Joueur_Homme joueur1;
-    public Joueur_Homme joueur2;
+    public Joueur joueur1;
+    public Joueur joueur2;
+    
     public Arbitre arbitre;
     int setGagnants;
     int tour;
@@ -29,14 +30,19 @@ public class Match extends Set{
      * Match homme --> le nombre de sets pour gagner = 3
      * Match femme --> Sets gagnants = 2
      */
-    public Match(Joueur_Homme joueur1,Joueur_Homme joueur2,Arbitre arbitre){
+    public Match(Joueur joueur1,Joueur joueur2,Arbitre arbitre,char genre){
         Spectateur a;
         int z;
         this.joueur1=joueur1;
         this.joueur2=joueur2;
         this.arbitre=arbitre;
         this.categorie="Simple Hommes";
-        this.setGagnants=3;
+        if(genre=='M'){
+            this.setGagnants=3;
+        }
+        else if(genre=='F'){
+            this.setGagnants=2;
+        }
         presentationMatch();
         for (int i=0;i<100;i++){
             z=(int)(Math.random()*2);
@@ -48,18 +54,9 @@ public class Match extends Set{
             }
             this.gradins.add(a);
         }
+    
     }
-    /*public Match(Joueur_Femme joueur1,Joueur_Femme joueur2,Arbitre arbitre){
-        this.joueur1=joueur1;
-        this.joueur2=joueur2;
-        this.arbitre=arbitre;
-        this.categorie="Simple Dames";
-        this.setGagnants=2;
-        this.setsJ1=0;
-        this.setsJ2=0;
-        
-        presentationMatch();
-    }*/
+    
     /**
      * 
      * @param duel Match en cours 
@@ -84,10 +81,10 @@ public class Match extends Set{
      * @param j2 Joueur 2 du match
      * @return Le vainqueur du match (utilise la fonction vainqueur_set)
      */
-    public Joueur_Homme vainqueur_match_H(Joueur_Homme j1,Joueur_Homme j2){
-        Joueur_Homme a;
-        while(this.setsJ1<this.setGagnants&&this.setsJ2<this.setGagnants){
-            a=vainqueur_set_H(j1,j2);
+    public Joueur vainqueur_match(Joueur j1,Joueur j2){
+        Joueur a;
+        while(this.setsJ1<this.setGagnants&&this.setsJ2<this.setGagnants&&!(this.setsJ1==(this.setGagnants-1)&&this.setsJ2==(this.setGagnants-1))){
+            a=vainqueur_set(j1,j2);
             if(a==j1){
                 
                 this.setsJ1++;
@@ -102,11 +99,16 @@ public class Match extends Set{
             System.out.println("SCORE : "+this.setsJ1+"/"+this.setsJ2);
             return j1;
         }
-        else{
+        else if(this.setsJ2==this.setGagnants){
             System.out.println("VAINQUEUR : "+j2.nomNaissance+" "+j2.prenom);
             System.out.println("SCORE : "+this.setsJ1+"/"+this.setsJ2);
             return j2;
         }
+        else{
+            a=vainqueur_set_final(j1,j2);
+            return a;
+        }
     }
+     
     
 }

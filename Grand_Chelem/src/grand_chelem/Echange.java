@@ -39,7 +39,7 @@ public class Echange {
      * @param j2 Joueur 2 du match
      * @return vainqueur du point simulé
      */
-    public Joueur_Homme vainqueur_point_H(Joueur_Homme j1,Joueur_Homme j2){
+    public Joueur vainqueur_point(Joueur j1,Joueur j2){
         this.faute=faute();
         if (this.faute){
             this.faute=false;
@@ -66,4 +66,6 @@ public class Echange {
                 return j2;
             }
         }
+    
+    
     }

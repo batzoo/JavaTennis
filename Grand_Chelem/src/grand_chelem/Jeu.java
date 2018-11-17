@@ -25,10 +25,10 @@ public class Jeu extends Echange {
      * @param j2 Joueur 2 du match
      * @return Vainqueur du jeu, utilise la fonction vainqueur_point 
      */
-    public Joueur_Homme vainqueur_jeu_H(Joueur_Homme j1,Joueur_Homme j2){
-        Joueur_Homme a;
+    public Joueur vainqueur_jeu(Joueur j1,Joueur j2){
+        Joueur a;
        while(this.ptsJ1<4&&this.ptsJ2<4&&!(this.ptsJ1==3&&this.ptsJ2==3)){
-           a=vainqueur_point_H(j1,j2);
+           a=vainqueur_point(j1,j2);
            if(a==j1){
                this.ptsJ1++;
            }
@@ -54,35 +54,20 @@ public class Jeu extends Echange {
        
 
     }
-    /**
-     * 
-     * @param score Score actuel du jeu (0,1,2,3,4)
-     * @return le score actuel au "format tennis" (0,15,30,40)
-     */
-   public int score(int score){
-       switch (score){
-           case 1:
-               return 15;
-           case 2:
-               return 30;
-           case 3: 
-               return 40;
-           default:
-               return 0;
-       }
-              
-   }
+    
+    
+   
    /** 
     * 
     * @param j1
     * @param j2
     * @return le vainqueur du jeu en cas d'égalité 
     */
-   public Joueur_Homme avantage(Joueur_Homme j1,Joueur_Homme j2){
+   public Joueur avantage(Joueur j1,Joueur j2){
        //System.out.println("AVANTAGE");
-       Joueur_Homme a;
+       Joueur a;
        while(this.ptsJ1<5&&this.ptsJ2<5&&!(this.ptsJ1==4&&this.ptsJ2==4)){
-           a=vainqueur_point_H(j1,j2);
+           a=vainqueur_point(j1,j2);
            if(a==j1){
                this.ptsJ1++;
            }
@@ -107,5 +92,24 @@ public class Jeu extends Echange {
                this.ptsJ2--;
                return avantage(j1,j2);
            }
+   } 
+   
+   /**
+     * 
+     * @param score Score actuel du jeu (0,1,2,3,4)
+     * @return le score actuel au "format tennis" (0,15,30,40)
+     */
+   public int score(int score){
+       switch (score){
+           case 1:
+               return 15;
+           case 2:
+               return 30;
+           case 3: 
+               return 40;
+           default:
+               return 0;
+       }
+              
    }
 }
