@@ -4,21 +4,23 @@
  * and open the template in the editor.
  */
 package grand_chelem;
+import java.util.Calendar;
 
 /**
  *
  * @author Baptiste Delpierre/Giovanni Haddadi
  */
-public class Date {
-    private int jour;
-    private int mois;
-    private int annee;
-    public Date(int jour,int mois,int annee){
+public class DateTennis {
+    protected int jour;
+    protected int mois;
+    protected int annee;
+    
+    public DateTennis(int jour,int mois,int annee){
         this.jour=jour;
         this.mois=mois;
         this.annee=annee;
     }
-    public Date(){
+    public DateTennis(){
         this.jour=0;
         this.mois=0;
         this.annee=0;
@@ -41,12 +43,13 @@ public class Date {
     public void afficherDate(){
         System.out.println(this.getJour()+"/"+this.getMois()+"/"+this.getAnnee());
     }
+    
     /**
      * 
      * @return Une date de naissance au hasard
      * entre 1983 et 2000 (18 à 35 ans)
      */
-    public Date date_naissance_hasard(){
+    public DateTennis date_naissance_hasard(){
         this.annee=(int) (Math.random() * 17)+1983;
         this.mois=(int) (Math.random() * 11)+1;
         if(this.mois==2){
@@ -55,6 +58,14 @@ public class Date {
         else{
             this.jour=(int) (Math.random() * 30)+1;
         }
+        return this;
+    }
+    
+     public DateTennis dateDeces(){
+        Calendar dateOrdi = Calendar.getInstance();
+        this.annee = (int)( Math.random() *((dateOrdi.get(Calendar.YEAR))-date_naissance_hasard().annee) ) + date_naissance_hasard().annee;
+        this.mois = (int)(Math.random()*11)+1;
+        this.jour = (int)(Math.random()*30)+1;
         return this;
     }
 }
