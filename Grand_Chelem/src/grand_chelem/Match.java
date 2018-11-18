@@ -32,28 +32,22 @@ public class Match extends Set{
      */
     public Match(Joueur joueur1,Joueur joueur2,Arbitre arbitre,char genre){
         Spectateur a;
+        this.setGagnants=0;
         int z;
         this.joueur1=joueur1;
         this.joueur2=joueur2;
         this.arbitre=arbitre;
-        this.categorie="Simple Hommes";
         if(genre=='M'){
+            this.categorie="Simple Hommes";
             this.setGagnants=3;
         }
-        else if(genre=='F'){
+        else {
+            
+            this.categorie="Simple Femmes";
             this.setGagnants=2;
         }
         presentationMatch();
-        for (int i=0;i<100;i++){
-            z=(int)(Math.random()*2);
-            if(z==0){
-                a=new Spec_Homme('H');
-            }
-            else{
-                a=new Spec_Femme('F');
-            }
-            this.gradins.add(a);
-        }
+        
     
     }
     
@@ -81,8 +75,10 @@ public class Match extends Set{
      * @param j2 Joueur 2 du match
      * @return Le vainqueur du match (utilise la fonction vainqueur_set)
      */
-    public Joueur vainqueur_match(Joueur j1,Joueur j2){
+    public Joueur vainqueur_match(){
         Joueur a;
+        Joueur j1=this.joueur1;
+        Joueur j2=this.joueur2;
         while(this.setsJ1<this.setGagnants&&this.setsJ2<this.setGagnants&&!(this.setsJ1==(this.setGagnants-1)&&this.setsJ2==(this.setGagnants-1))){
             a=vainqueur_set(j1,j2);
             if(a==j1){
