@@ -15,6 +15,10 @@ public class Spec_Femme extends Spectateur {
         super(nomNaissance, prenom, genre, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids);
         this.tenue="Lunettes";
     }
+    /**
+     * 
+     * @param genre genre du spectateur : M pour Homme F pour femme 
+     */
     public Spec_Femme(char genre){
         super(genre);
         this.tenue="Lunettes";

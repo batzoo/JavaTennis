@@ -15,6 +15,10 @@ public class Spec_Homme extends Spectateur {
         super(nomNaissance, prenom, genre, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids);
         this.tenue="Chemise";
     }
+    /**
+     * Constructor de spectateur Homme aléatoire
+     * @param genre 
+     */
     public Spec_Homme(char genre){
         super(genre);
         this.tenue="Chemise";

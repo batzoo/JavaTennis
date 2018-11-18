@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class Match extends Set{
     public ArrayList<Spectateur> gradins=new ArrayList<>();
+    //Catégorie du match (Simple Homme ou Femme)
     public String categorie;
     public Joueur joueur1;
     public Joueur joueur2;

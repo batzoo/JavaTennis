@@ -18,6 +18,8 @@ public class Tournoi_H {
     */
     Match matchs;
     Arbitre arb=new Arbitre('M');
+    //Différentes étapes du tournoi sous forme de liste 
+    
     ArrayList<Joueur> premier_tour;  
     ArrayList<Joueur> deuxieme_tour;
     ArrayList<Joueur> troisieme_tour;
@@ -75,6 +77,11 @@ public class Tournoi_H {
             return "Decoturf";
         }
     }
+    /**
+     * 
+     * @param genre 
+     * effectue le premier tour du tournoi (128 joueurs)
+     */
     public void premierTour(char genre){
         for(int i=0;i<128;i=i+2){
             this.matchs=new Match(this.premier_tour.get(i),this.premier_tour.get(i+1),arb,genre);
@@ -85,6 +92,11 @@ public class Tournoi_H {
             System.out.println(this.deuxieme_tour.get(i).prenom+" "+this.deuxieme_tour.get(i).nomNaissance);
         }
     }
+    /**
+     * 
+     * @param genre 
+     * effectue le deuxieme tour du tournoi (64 joueurs)
+     */
     public void deuxiemeTour(char genre){
         for(int i=0;i<64;i=i+2){
             this.matchs=new Match(this.deuxieme_tour.get(i),this.deuxieme_tour.get(i+1),arb,genre);
@@ -95,6 +107,11 @@ public class Tournoi_H {
             System.out.println(this.troisieme_tour.get(i).prenom+" "+this.troisieme_tour.get(i).nomNaissance);
         }
     }
+    /**
+     * 
+     * @param genre 
+     * effectue le troisieme tour du tournoi (32 joueurs)
+     */
     public void troisiemeTour(char genre){
         for(int i=0;i<32;i=i+2){
             this.matchs=new Match(this.troisieme_tour.get(i),this.troisieme_tour.get(i+1),arb,genre);
@@ -105,6 +122,11 @@ public class Tournoi_H {
             System.out.println(this.huitieme_de_finale.get(i).prenom+" "+this.huitieme_de_finale.get(i).nomNaissance);
         }
     }
+    /**
+     * 
+     * @param genre 
+     * effectue les huitiemes de finale du tournoi (16 joueurs)
+     */
     public void huitiemes(char genre){
         for(int i=0;i<16;i=i+2){
             this.matchs=new Match(this.huitieme_de_finale.get(i),this.huitieme_de_finale.get(i+1),arb,genre);
@@ -115,6 +137,11 @@ public class Tournoi_H {
             System.out.println(this.quart_de_finale.get(i).prenom+" "+this.quart_de_finale.get(i).nomNaissance);
         }
     }
+    /**
+     * 
+     * @param genre 
+     * effectue les quarts de finale du tournoi (8 joueurs)
+     */
     public void quarts(char genre){
         for(int i=0;i<8;i=i+2){
             this.matchs=new Match(this.quart_de_finale.get(i),this.quart_de_finale.get(i+1),arb,genre);
@@ -125,6 +152,11 @@ public class Tournoi_H {
             System.out.println(this.demi_finale.get(i).prenom+" "+this.demi_finale.get(i).nomNaissance);
         }
     }
+    /**
+     * 
+     * @param genre 
+     * effectue les demi-finale du tournoi (4 joueurs)
+     */
     public void demies(char genre){
         for(int i=0;i<4;i=i+2){
             this.matchs=new Match(this.demi_finale.get(i),this.demi_finale.get(i+1),arb,genre);
@@ -135,12 +167,20 @@ public class Tournoi_H {
             System.out.println(this.finale.get(i).prenom+" "+this.finale.get(i).nomNaissance);
         }
     }
+    /**
+     * 
+     * @param genre 
+     * effectue la finale du tournoi (2 joueurs)
+     */
     public void finale(char genre){
             this.matchs=new Match(this.finale.get(0),this.finale.get(1),arb,genre);
             this.vainqueur=this.matchs.vainqueur_match();
         
         System.out.println("Le vainqueur du tournoi de "+this.lieuTournoi+" est : "+this.vainqueur.nom_Prenom());
     }
+    /**
+     * Fonction qui simule tous les tours du tournoi homme
+     */
     public void tournoi_hommes(){
         this.premierTour('M');
         this.deuxiemeTour('M');
@@ -151,6 +191,9 @@ public class Tournoi_H {
         this.finale('M');
         
     }
+    /*
+    Fonction qui simule tous les tours du tournoi femme
+    */
     public void tournoi_femmes(){
         this.premierTour('F');
         this.deuxiemeTour('F');

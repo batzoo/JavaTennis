@@ -11,12 +11,17 @@ package grand_chelem;
  */
 public class Joueur_Homme extends Joueur {
     String tenue;
-     
+     /*
+    Constructor pour Joueur Homme en entrant les différents attributs
+    */
     public Joueur_Homme(String nomNaissance, String prenom, char genre, DateTennis dateNaissance, String lieuNaissance, DateTennis dateDeces, String nationalite, int taille, float poids, char main, String sponsor, int classement, String entraineur,String couleur) {
         super(nomNaissance, prenom, genre, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids, main, sponsor, classement, entraineur,couleur);
         this.tenue="Short"+this.couleur;
         PresentationJoueur_H();
     }
+    /*
+    Constructor pour Joueur Homme aléatoire
+    */
     public Joueur_Homme(char genre,int classement){
         super(genre,classement);
         this.tenue="Short"+this.couleur;

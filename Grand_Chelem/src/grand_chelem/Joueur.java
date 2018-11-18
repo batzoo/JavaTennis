@@ -53,6 +53,11 @@ public class Joueur extends Personne
     public String nom_Prenom(){
         return this.prenom+" "+this.nomNaissance;
     }
+    
+    /**
+     * 
+     * @return Droitier ou gaucher de manière aléatoire
+     */
     public char main_random(){
         int a =(int)(Math.random()*2);
         if(a==0){
@@ -62,18 +67,34 @@ public class Joueur extends Personne
             return 'D';
         }
     }
+    /**
+     * 
+     * @return un sponsor random
+     */
     public String sponsor_random(){
         String sponsors[]={"Nike","Adidas","Asics","Puma","Reebok","Wilson","Babolat","Artengo","Kipsta","Kappa"};
         return sponsors[(int)(Math.random()*10)];
     }
+    /**
+     * 
+     * @return un entraineur random
+     */
     public String entraineur_random(){
         String entraineurs[]={"Yannick Noah","John McEnroe","Henri Lecomte","Mickael Llodra","Fred Perry","Jack Kramer","Pete Sampras","Andre Agassi","Bjorn Borg","Ivan Lendl"};
         return entraineurs[(int)(Math.random()*10)];
     }
+    /**
+     * 
+     * @return une couleur random
+     */
     public String couleur_random(){
         String couleurs[]={"Rouge","Bleu","Vert","Jaune","Orange","Noir","Blanc","Bordeaux","Violet"};
         return couleurs[(int)(Math.random()*9)];
     }
+    /**
+     * 
+     * @param couleur nouvelle couleur de la tenue du joueur
+     */
     public void changementCouleur(String couleur){
         this.couleur=couleur;
     }
