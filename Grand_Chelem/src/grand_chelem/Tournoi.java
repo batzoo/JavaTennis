@@ -83,7 +83,7 @@ public class Tournoi {
      * @param genre 
      * effectue le premier tour du tournoi (128 joueurs)
      */
-    public void premierTour(char genre){
+    public void premierTour(char genre) throws Exception{
         boolean automan;
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<128;i=i+2){
@@ -102,7 +102,7 @@ public class Tournoi {
      * @param genre 
      * effectue le deuxieme tour du tournoi (64 joueurs)
      */
-    public void deuxiemeTour(char genre){
+    public void deuxiemeTour(char genre) throws Exception{
         boolean automan;
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<64;i=i+2){
@@ -120,7 +120,7 @@ public class Tournoi {
      * @param genre 
      * effectue le troisieme tour du tournoi (32 joueurs)
      */
-    public void troisiemeTour(char genre){
+    public void troisiemeTour(char genre) throws Exception{
         boolean automan;
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<32;i=i+2){
@@ -138,7 +138,7 @@ public class Tournoi {
      * @param genre 
      * effectue les huitiemes de finale du tournoi (16 joueurs)
      */
-    public void huitiemes(char genre){
+    public void huitiemes(char genre) throws Exception{
         boolean automan;
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<16;i=i+2){
@@ -156,7 +156,7 @@ public class Tournoi {
      * @param genre 
      * effectue les quarts de finale du tournoi (8 joueurs)
      */
-    public void quarts(char genre){
+    public void quarts(char genre) throws Exception{
         boolean automan;
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<8;i=i+2){
@@ -174,7 +174,7 @@ public class Tournoi {
      * @param genre 
      * effectue les demi-finale du tournoi (4 joueurs)
      */
-    public void demies(char genre){
+    public void demies(char genre) throws Exception{
         boolean automan;
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<4;i=i+2){
@@ -192,7 +192,7 @@ public class Tournoi {
      * @param genre 
      * effectue la finale du tournoi (2 joueurs)
      */
-    public void finale(char genre){
+    public void finale(char genre) throws Exception{
         boolean automan;
         Scanner sc=new Scanner(System.in);
         automan=saisieAuto_Manuel(sc);
@@ -204,7 +204,7 @@ public class Tournoi {
     /**
      * Fonction qui simule tous les tours du tournoi homme
      */
-    public void tournoi_hommes(){
+    public void tournoi_hommes() throws Exception{
         this.premierTour('M');
         this.deuxiemeTour('M');
         this.troisiemeTour('M');
@@ -217,7 +217,7 @@ public class Tournoi {
     /*
     Fonction qui simule tous les tours du tournoi femme
     */
-    public void tournoi_femmes(){
+    public void tournoi_femmes() throws Exception{
         this.premierTour('F');
         this.deuxiemeTour('F');
         this.troisiemeTour('F');
@@ -227,23 +227,31 @@ public class Tournoi {
         this.finale('F');
         
     }
-    public boolean saisieAuto_Manuel(Scanner sc){
+    public boolean saisieAuto_Manuel(Scanner sc) throws Exception{
         String saisie;
         System.out.println("Manuel ou Automatique : ");
         System.out.println("(Automatique par défaut et si mauvaise saisie)");
         System.out.println("(M)anuel");
         System.out.println("(A)utomatique");
         saisie=sc.nextLine();
-        System.out.println("SAISIE = "+saisie);
-        if(saisie.compareTo("M")==0||saisie.compareTo("m")==0){
-            return false;
+        try{
+            if(!(saisie.compareTo("M")==0||saisie.compareTo("m")==0||saisie.compareTo("A")==0||saisie.compareTo("a")==0)){
+                throw new Exception("Veuillez saisir A ou M");
+                
+            }
+            else{
+                if(saisie.compareTo("M")==0||saisie.compareTo("m")==0){
+                return false;
         }
-        else if(saisie.compareTo("A")==0||saisie.compareTo("a")==0){
+            else {
             return true;
+             }
+            }
         }
-        else{
-            return true;
+        catch(Exception saisie_mauvaise){
+            System.err.println(saisie_mauvaise.getMessage());
         }
+        return saisieAuto_Manuel(sc);
         
     }
 }

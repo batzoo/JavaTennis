@@ -23,6 +23,7 @@ public class Arbitre extends Personne {
      * @param poids 
      */
     public Arbitre(String nomNaissance, String prenom, char genre, DateTennis dateNaissance, String lieuNaissance, DateTennis dateDeces, String nationalite, int taille, float poids) {
+        
         super(nomNaissance, prenom, genre, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids);
     } 
     

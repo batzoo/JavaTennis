@@ -71,7 +71,7 @@ public class Echange {
      * Fonction du service_auto
      * @return 0 si double faute, 1 si service_auto bon
      */
-    public Joueur vainqueur_point_manuel(Joueur j1,Joueur j2){
+    public Joueur vainqueur_point_manuel(Joueur j1,Joueur j2) throws Exception{
         int service;
         Scanner sc=new Scanner(System.in);
         System.out.println("Service "+j1.prenom+" "+j1.nomNaissance+" : ");
@@ -98,7 +98,7 @@ public class Echange {
             return echange_manuel(j1,j2,sc);
         }
     }
-    public Joueur echange_manuel(Joueur j1,Joueur j2,Scanner sc){
+    public Joueur echange_manuel(Joueur j1,Joueur j2,Scanner sc) throws Exception{
         String faute;
         int joueur=2;
         int a=0;
@@ -107,27 +107,29 @@ public class Echange {
             System.out.println("(F)aute");
             System.out.println("(B)on");
             faute=sc.nextLine();
-            if(faute.compareTo("F")==0||faute.compareTo("f")==0){
-                a=1;
+            try{
+                 if(!(faute.compareTo("F")==0||faute.compareTo("f")==0||faute.compareTo("B")==0||faute.compareTo("b")==0)){
+                     throw new Exception("Veuillez saisir F ou B !!");
+                 }
+                 else{
+                    if(faute.compareTo("F")==0||faute.compareTo("f")==0){
+                        a=1;
+                    }
+                    else if(faute.compareTo("B")==0||faute.compareTo("b")==0){
+                        if(joueur==2){
+                            joueur=1;
+                        }
+                        else{
+                             joueur=2;
+                        }
+                    }
+                }
             }
-            else if(faute.compareTo("B")==0||faute.compareTo("b")==0){
-            if(joueur==2){
-                joueur=1;
-            }
-            else{
-                joueur=2;
-            }
-            }
-            else{
-                if(joueur==2){
-                joueur=1;
-            }
-            else{
-                joueur=2;
-            }
-                
+            catch(Exception mauvaise_saisie){
+                System.err.println(mauvaise_saisie.getMessage());
             }
         }
+            
         if(joueur==1){
             System.out.println("Point Joueur 2");
             return j2;
@@ -151,39 +153,61 @@ public class Echange {
         }
         else {return 1;}
     }
-    public int service(Scanner sc){
+    public int service(Scanner sc) throws Exception{
     String saisie;
         System.out.println("Service bon par défaut ou si mauvaise saisie");
         System.out.println("(S)ervice bon");
         System.out.println("(F)aute");
         System.out.println("(A)ce");
         saisie=sc.nextLine();
-        if(saisie.compareTo("F")==0||saisie.compareTo("f")==0){
-            return 0;
+        try{
+            if(!(saisie.compareTo("F")==0||saisie.compareTo("f")==0||saisie.compareTo("A")==0||saisie.compareTo("a")==0||saisie.compareTo("S")==0||saisie.compareTo("s")==0)){
+                throw new Exception("Veuillez saisir S, F ou A");
+            }
+            else{
+                if(saisie.compareTo("F")==0||saisie.compareTo("f")==0){
+                return 0;
+                }
+                else if(saisie.compareTo("A")==0||saisie.compareTo("a")==0){
+                    return 1;
+                }
+                else{
+                    return 2;
+                }
+            }
         }
-        else if(saisie.compareTo("A")==0||saisie.compareTo("a")==0){
-            return 1;
+        catch(Exception saisie_mauvaise){
+            System.err.println(saisie_mauvaise.getMessage());
         }
-        else{
-            return 2;
-        }
+        return service(sc);
     }
-    public int deuxieme_service(Scanner sc){
+    public int deuxieme_service(Scanner sc) throws Exception{
         String saisie;
         System.out.println("Service bon par défaut ou si mauvaise saisie");
         System.out.println("(S)ervice bon");
         System.out.println("Double (F)aute");
         System.out.println("(A)ce");
         saisie=sc.nextLine();
-        if(saisie.compareTo("F")==0||saisie.compareTo("f")==0){
-            return 0;
+        try{
+            if(!(saisie.compareTo("F")==0||saisie.compareTo("f")==0||saisie.compareTo("A")==0||saisie.compareTo("a")==0||saisie.compareTo("S")==0||saisie.compareTo("s")==0)){
+                throw new Exception("Veuillez saisir S, F ou A");
+            }
+            else{
+                if(saisie.compareTo("F")==0||saisie.compareTo("f")==0){
+                return 0;
+                }
+                else if(saisie.compareTo("A")==0||saisie.compareTo("a")==0){
+                    return 1;
+                }
+                else{
+                    return 2;
+                }
+            }
         }
-        else if(saisie.compareTo("A")==0||saisie.compareTo("a")==0){
-            return 1;
+        catch(Exception saisie_mauvaise){
+            System.err.println(saisie_mauvaise.getMessage());
         }
-        else{
-            return 2;
-        }
+        return deuxieme_service(sc);
     }
     }
     

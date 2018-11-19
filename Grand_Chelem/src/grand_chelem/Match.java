@@ -13,12 +13,17 @@ import java.util.ArrayList;
  */
 public class Match extends Set{
     public ArrayList<Spectateur> gradins=new ArrayList<>();
-    //Catégorie du match (Simple Homme ou Femme)
+    /** Catégorie du match (Simple Homme ou Femme)*/
     public String categorie;
+    /** Joueur qui sert */
     public Joueur joueur1;
+    /**  Joueur qui reçoit*/
     public Joueur joueur2;
+    /** Booléen donnant le mode utilisé : Auto ou Manuel */
     public boolean auto;
+    /* Arbitre du match */
     public Arbitre arbitre;
+    /** Nombre de sets nécéssaire pour gagner le match : 2 pour femmes, 3 pour hommes */
     int setGagnants;
     int tour;
     /* SetsJ1 --> nombre de sets du Joueur 1*/
@@ -72,8 +77,9 @@ public class Match extends Set{
     }
     /**
      * 
-     * @param j1 Joueur 1 du match
-     * @param j2 Joueur 2 du match
+     * @param auto Variable pour savoir quel mode utiliser :
+     *              true pour automatique
+     *              false pour manuel
      * @return Le vainqueur du match (utilise la fonction vainqueur_set)
      */
     public Joueur vainqueur_match(boolean auto){
