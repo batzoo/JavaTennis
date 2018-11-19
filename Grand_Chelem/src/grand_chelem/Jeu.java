@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package grand_chelem;
-
 /**
  *
  * @author ISEN
@@ -25,7 +24,7 @@ public class Jeu extends Echange {
      * @param j2 Joueur 2 du match (Retour)
      * @return Vainqueur du jeu, utilise la fonction vainqueur_point_auto 
      */
-    public Joueur vainqueur_jeu(Joueur j1,Joueur j2,boolean auto){
+    public Joueur vainqueur_jeu(Joueur j1,Joueur j2,boolean auto) {
         Joueur a;
        while(this.ptsJ1<4&&this.ptsJ2<4&&!(this.ptsJ1==3&&this.ptsJ2==3)){
            if(auto){
@@ -68,7 +67,7 @@ public class Jeu extends Echange {
     * @param j2
     * @return le vainqueur du jeu en cas d'égalité 
     */
-   public Joueur avantage(Joueur j1,Joueur j2,boolean auto){
+   public Joueur avantage(Joueur j1,Joueur j2,boolean auto) {
        //System.out.println("AVANTAGE");
        Joueur a;
        while(this.ptsJ1<5&&this.ptsJ2<5&&!(this.ptsJ1==4&&this.ptsJ2==4)){

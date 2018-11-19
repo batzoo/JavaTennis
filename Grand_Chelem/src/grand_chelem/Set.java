@@ -60,7 +60,7 @@ public class Set extends Jeu {
      * @return le vainqueur du set (appelle vainqueur_jeu de la classe Jeu)
      */
     
-   public Joueur vainqueur_set(Joueur j1,Joueur j2,boolean auto){
+   public Joueur vainqueur_set(Joueur j1,Joueur j2,boolean auto) {
        //Joueur tampon
        Joueur a;
        //Serveur permet de changer de serveur,
@@ -121,7 +121,7 @@ public class Set extends Jeu {
     * 
     * @return le vainqueur du set en cas de 5/5
     */
-   public Joueur jeux_decart(Joueur j1,Joueur j2,boolean auto){
+   public Joueur jeux_decart(Joueur j1,Joueur j2,boolean auto) {
        Joueur a;
        //tant que les joueurs n'ont pas atteint 7 jeux ou qu'il n'y a pas 6-6
        //On appelle la fonction vainqueur_jeu 
@@ -162,7 +162,7 @@ public class Set extends Jeu {
     * 
     * @return le vainqueur du tiebreak en cas de 6-6
     */
-   public Joueur tiebreak(Joueur j1,Joueur j2,boolean auto){
+   public Joueur tiebreak(Joueur j1,Joueur j2,boolean auto) {
        int a=0;
        int b=0;
        Joueur c;

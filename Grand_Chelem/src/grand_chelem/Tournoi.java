@@ -83,7 +83,7 @@ public class Tournoi {
      * @param genre 
      * effectue le premier tour du tournoi (128 joueurs)
      */
-    public void premierTour(char genre) throws Exception{
+    public void premierTour(char genre){
         boolean automan;
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<128;i=i+2){
@@ -102,7 +102,7 @@ public class Tournoi {
      * @param genre 
      * effectue le deuxieme tour du tournoi (64 joueurs)
      */
-    public void deuxiemeTour(char genre) throws Exception{
+    public void deuxiemeTour(char genre) {
         boolean automan;
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<64;i=i+2){
@@ -120,7 +120,7 @@ public class Tournoi {
      * @param genre 
      * effectue le troisieme tour du tournoi (32 joueurs)
      */
-    public void troisiemeTour(char genre) throws Exception{
+    public void troisiemeTour(char genre){
         boolean automan;
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<32;i=i+2){
@@ -138,7 +138,7 @@ public class Tournoi {
      * @param genre 
      * effectue les huitiemes de finale du tournoi (16 joueurs)
      */
-    public void huitiemes(char genre) throws Exception{
+    public void huitiemes(char genre){
         boolean automan;
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<16;i=i+2){
@@ -156,7 +156,7 @@ public class Tournoi {
      * @param genre 
      * effectue les quarts de finale du tournoi (8 joueurs)
      */
-    public void quarts(char genre) throws Exception{
+    public void quarts(char genre) {
         boolean automan;
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<8;i=i+2){
@@ -174,7 +174,7 @@ public class Tournoi {
      * @param genre 
      * effectue les demi-finale du tournoi (4 joueurs)
      */
-    public void demies(char genre) throws Exception{
+    public void demies(char genre) {
         boolean automan;
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<4;i=i+2){
@@ -192,7 +192,7 @@ public class Tournoi {
      * @param genre 
      * effectue la finale du tournoi (2 joueurs)
      */
-    public void finale(char genre) throws Exception{
+    public void finale(char genre) {
         boolean automan;
         Scanner sc=new Scanner(System.in);
         automan=saisieAuto_Manuel(sc);
@@ -204,7 +204,7 @@ public class Tournoi {
     /**
      * Fonction qui simule tous les tours du tournoi homme
      */
-    public void tournoi_hommes() throws Exception{
+    public void tournoi_hommes() {
         this.premierTour('M');
         this.deuxiemeTour('M');
         this.troisiemeTour('M');
@@ -217,7 +217,7 @@ public class Tournoi {
     /*
     Fonction qui simule tous les tours du tournoi femme
     */
-    public void tournoi_femmes() throws Exception{
+    public void tournoi_femmes() {
         this.premierTour('F');
         this.deuxiemeTour('F');
         this.troisiemeTour('F');
@@ -227,7 +227,7 @@ public class Tournoi {
         this.finale('F');
         
     }
-    public boolean saisieAuto_Manuel(Scanner sc) throws Exception{
+    public boolean saisieAuto_Manuel(Scanner sc) {
         String saisie;
         System.out.println("Manuel ou Automatique : ");
         System.out.println("(Automatique par défaut et si mauvaise saisie)");

@@ -6,6 +6,7 @@
 package grand_chelem;
 
 import java.util.Scanner;
+import java.lang.Exception;
 
 /**
  *
@@ -71,7 +72,7 @@ public class Echange {
      * Fonction du service_auto
      * @return 0 si double faute, 1 si service_auto bon
      */
-    public Joueur vainqueur_point_manuel(Joueur j1,Joueur j2) throws Exception{
+    public Joueur vainqueur_point_manuel(Joueur j1,Joueur j2){
         int service;
         Scanner sc=new Scanner(System.in);
         System.out.println("Service "+j1.prenom+" "+j1.nomNaissance+" : ");
@@ -98,7 +99,7 @@ public class Echange {
             return echange_manuel(j1,j2,sc);
         }
     }
-    public Joueur echange_manuel(Joueur j1,Joueur j2,Scanner sc) throws Exception{
+    public Joueur echange_manuel(Joueur j1,Joueur j2,Scanner sc) {
         String faute;
         int joueur=2;
         int a=0;
@@ -153,9 +154,9 @@ public class Echange {
         }
         else {return 1;}
     }
-    public int service(Scanner sc) throws Exception{
+    public int service(Scanner sc) {
     String saisie;
-        System.out.println("Service bon par défaut ou si mauvaise saisie");
+        System.out.println("Service ");
         System.out.println("(S)ervice bon");
         System.out.println("(F)aute");
         System.out.println("(A)ce");
@@ -181,7 +182,7 @@ public class Echange {
         }
         return service(sc);
     }
-    public int deuxieme_service(Scanner sc) throws Exception{
+    public int deuxieme_service(Scanner sc) {
         String saisie;
         System.out.println("Service bon par défaut ou si mauvaise saisie");
         System.out.println("(S)ervice bon");
