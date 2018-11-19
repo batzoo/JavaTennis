@@ -24,9 +24,12 @@ public class Jeu extends Echange {
      * @param j2 Joueur 2 du match (Retour)
      * @return Vainqueur du jeu, utilise la fonction vainqueur_point_auto 
      */
-    public Joueur vainqueur_jeu(Joueur j1,Joueur j2,boolean auto) {
+    public Joueur vainqueur_jeu(Joueur j1,Joueur j2,boolean auto,boolean affich) {
         Joueur a;
        while(this.ptsJ1<4&&this.ptsJ2<4&&!(this.ptsJ1==3&&this.ptsJ2==3)){
+           if(affich){
+               System.out.println("Points : "+score(this.ptsJ1)+"/"+score(this.ptsJ2));
+           }
            if(auto){
                 a=vainqueur_point_auto(j1,j2);
            }
@@ -40,7 +43,6 @@ public class Jeu extends Echange {
                this.ptsJ2++;
            }
           
-           //System.out.println("Pts : "+score(this.ptsJ1)+"/"+score(this.ptsJ2));
        }
        if(this.ptsJ1==4){
            this.ptsJ1=0;
@@ -53,7 +55,7 @@ public class Jeu extends Echange {
            return j2;
        }
        else{
-           return avantage(j1,j2,auto);
+           return avantage(j1,j2,auto,affich);
        }
        
 
@@ -67,10 +69,23 @@ public class Jeu extends Echange {
     * @param j2
     * @return le vainqueur du jeu en cas d'égalité 
     */
-   public Joueur avantage(Joueur j1,Joueur j2,boolean auto) {
+   public Joueur avantage(Joueur j1,Joueur j2,boolean auto,boolean affich) {
        //System.out.println("AVANTAGE");
        Joueur a;
+       String av="AV";
        while(this.ptsJ1<5&&this.ptsJ2<5&&!(this.ptsJ1==4&&this.ptsJ2==4)){
+           if(affich){
+               
+               if(this.ptsJ1==4){
+                   System.out.println("Points : "+av+"/"+score(this.ptsJ2));
+               }
+               else if(this.ptsJ2==4){
+                    System.out.println("Points : "+score(this.ptsJ1)+"/"+av);
+               }
+               else{
+                   System.out.println("Points : "+score(this.ptsJ1)+"/"+score(this.ptsJ2));
+               }
+           }
            if(auto){
                 a=vainqueur_point_auto(j1,j2);
            }
@@ -99,7 +114,7 @@ public class Jeu extends Echange {
            else{
                this.ptsJ1--;
                this.ptsJ2--;
-               return avantage(j1,j2,auto);
+               return avantage(j1,j2,auto,affich);
            }
    } 
    

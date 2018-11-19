@@ -85,12 +85,20 @@ public class Tournoi {
      */
     public void premierTour(char genre){
         boolean automan;
+        boolean affichage;
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<128;i=i+2){
-            automan=saisieAuto_Manuel(sc);
-            System.out.println("AUTOMAN="+automan);
             this.matchs=new Match(this.premier_tour.get(i),this.premier_tour.get(i+1),arb,genre);
-            this.deuxieme_tour.add(this.matchs.vainqueur_match(automan));
+            automan=saisieAuto_Manuel(sc);
+            if(automan){
+                affichage=saisie_affichage();
+                this.deuxieme_tour.add(this.matchs.vainqueur_match(automan,affichage));
+            }
+            else{
+                affichage=true;
+                this.deuxieme_tour.add(this.matchs.vainqueur_match(automan,affichage));
+            }
+            
         }
         System.out.println("Sont qualifiés au 2e tour : ");
         for (int i=0;i<64;i++){
@@ -104,11 +112,19 @@ public class Tournoi {
      */
     public void deuxiemeTour(char genre) {
         boolean automan;
+        boolean affichage;
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<64;i=i+2){
-            automan=saisieAuto_Manuel(sc);
             this.matchs=new Match(this.deuxieme_tour.get(i),this.deuxieme_tour.get(i+1),arb,genre);
-            this.troisieme_tour.add(this.matchs.vainqueur_match(automan));
+            automan=saisieAuto_Manuel(sc);
+            if(automan){
+                affichage=saisie_affichage();
+                this.troisieme_tour.add(this.matchs.vainqueur_match(automan,affichage));
+            }
+            else{
+                affichage=true;
+                this.troisieme_tour.add(this.matchs.vainqueur_match(automan,affichage));
+            }
         }
         System.out.println("Sont qualifiés au 3e tour : ");
         for (int i=0;i<32;i++){
@@ -122,11 +138,19 @@ public class Tournoi {
      */
     public void troisiemeTour(char genre){
         boolean automan;
+        boolean affichage;
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<32;i=i+2){
             automan=saisieAuto_Manuel(sc);
             this.matchs=new Match(this.troisieme_tour.get(i),this.troisieme_tour.get(i+1),arb,genre);
-            this.huitieme_de_finale.add(this.matchs.vainqueur_match(automan));
+            if(automan){
+                affichage=saisie_affichage();
+                this.huitieme_de_finale.add(this.matchs.vainqueur_match(automan,affichage));
+            }
+            else{
+                affichage=true;
+                this.huitieme_de_finale.add(this.matchs.vainqueur_match(automan,affichage));
+            }
         }
         System.out.println("Sont qualifiés en 8e de finale : ");
         for (int i=0;i<16;i++){
@@ -140,11 +164,19 @@ public class Tournoi {
      */
     public void huitiemes(char genre){
         boolean automan;
+        boolean affichage;
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<16;i=i+2){
             automan=saisieAuto_Manuel(sc);
             this.matchs=new Match(this.huitieme_de_finale.get(i),this.huitieme_de_finale.get(i+1),arb,genre);
-            this.quart_de_finale.add(this.matchs.vainqueur_match(automan));
+            if(automan){
+                affichage=saisie_affichage();
+                this.quart_de_finale.add(this.matchs.vainqueur_match(automan,affichage));
+            }
+            else{
+                affichage=true;
+                this.quart_de_finale.add(this.matchs.vainqueur_match(automan,affichage));
+            }
         }
         System.out.println("Sont qualifiés en 1/4 de finale : ");
         for (int i=0;i<8;i++){
@@ -158,11 +190,19 @@ public class Tournoi {
      */
     public void quarts(char genre) {
         boolean automan;
+        boolean affichage;
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<8;i=i+2){
             automan=saisieAuto_Manuel(sc);
             this.matchs=new Match(this.quart_de_finale.get(i),this.quart_de_finale.get(i+1),arb,genre);
-            this.demi_finale.add(this.matchs.vainqueur_match(automan));
+            if(automan){
+                affichage=saisie_affichage();
+                this.demi_finale.add(this.matchs.vainqueur_match(automan,affichage));
+            }
+            else{
+                affichage=true;
+                this.demi_finale.add(this.matchs.vainqueur_match(automan,affichage));
+            }
         }
         System.out.println("Sont qualifiés en demi-finale : ");
         for (int i=0;i<4;i++){
@@ -176,11 +216,19 @@ public class Tournoi {
      */
     public void demies(char genre) {
         boolean automan;
+        boolean affichage;
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<4;i=i+2){
             automan=saisieAuto_Manuel(sc);
             this.matchs=new Match(this.demi_finale.get(i),this.demi_finale.get(i+1),arb,genre);
-            this.finale.add(this.matchs.vainqueur_match(automan));
+            if(automan){
+                affichage=saisie_affichage();
+                this.finale.add(this.matchs.vainqueur_match(automan,affichage));
+            }
+            else{
+                affichage=true;
+                this.finale.add(this.matchs.vainqueur_match(automan,affichage));
+            }
         }
         System.out.println("Sont qualifiés en  finale : ");
         for (int i=0;i<2;i++){
@@ -194,10 +242,18 @@ public class Tournoi {
      */
     public void finale(char genre) {
         boolean automan;
+        boolean affichage;
         Scanner sc=new Scanner(System.in);
         automan=saisieAuto_Manuel(sc);
         this.matchs=new Match(this.finale.get(0),this.finale.get(1),arb,genre);
-        this.vainqueur=this.matchs.vainqueur_match(automan);
+        if(automan){
+                affichage=saisie_affichage();
+                this.finale.add(this.matchs.vainqueur_match(automan,affichage));
+            }
+            else{
+                affichage=true;
+                this.finale.add(this.matchs.vainqueur_match(automan,affichage));
+            }
         
         System.out.println("Le vainqueur du tournoi de "+this.lieuTournoi+" est : "+this.vainqueur.nom_Prenom());
     }
@@ -230,7 +286,6 @@ public class Tournoi {
     public boolean saisieAuto_Manuel(Scanner sc) {
         String saisie;
         System.out.println("Manuel ou Automatique : ");
-        System.out.println("(Automatique par défaut et si mauvaise saisie)");
         System.out.println("(M)anuel");
         System.out.println("(A)utomatique");
         saisie=sc.nextLine();
@@ -250,8 +305,34 @@ public class Tournoi {
         }
         catch(Exception saisie_mauvaise){
             System.err.println(saisie_mauvaise.getMessage());
+            return saisieAuto_Manuel(sc);
         }
-        return saisieAuto_Manuel(sc);
-        
+    }
+   
+public boolean saisie_affichage(){
+        String saisie;
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Souhaitez vous afficher le détail des matchs ?");
+        System.out.println("(O)ui");
+        System.out.println("(N)on");
+        saisie=sc.nextLine();
+        try{
+            if(!(saisie.compareTo("O")==0||saisie.compareTo("o")==0||saisie.compareTo("N")==0||saisie.compareTo("n")==0)){
+                throw new Exception("Veuillez saisir O ou N ");
+            }
+            else{
+                if(saisie.compareTo("O")==0||saisie.compareTo("o")==0){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }
+        }
+        catch(Exception mauvaise_saisie) {
+            System.err.println(mauvaise_saisie.getMessage());
+            return saisie_affichage();
+        }
     }
 }
+

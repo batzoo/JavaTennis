@@ -82,13 +82,13 @@ public class Match extends Set{
      *              false pour manuel
      * @return Le vainqueur du match (utilise la fonction vainqueur_set)
      */
-    public Joueur vainqueur_match(boolean auto){
+    public Joueur vainqueur_match(boolean auto,boolean affich){
         Joueur a;
         Joueur j1=this.joueur1;
         Joueur j2=this.joueur2;
         
         while(this.setsJ1<this.setGagnants&&this.setsJ2<this.setGagnants&&!(this.setsJ1==(this.setGagnants-1)&&this.setsJ2==(this.setGagnants-1))){
-            a=vainqueur_set(j1,j2,auto);
+            a=vainqueur_set(j1,j2,auto,affich);
             if(a==j1){
                 
                 this.setsJ1++;
@@ -109,10 +109,10 @@ public class Match extends Set{
             return j2;
         }
         else{
-            a=vainqueur_set_final(j1,j2,auto);
+            a=vainqueur_set_final(j1,j2,auto,affich);
             return a;
         }
     }
-     
+
     
 }

@@ -156,7 +156,6 @@ public class Echange {
     }
     public int service(Scanner sc) {
     String saisie;
-        System.out.println("Service ");
         System.out.println("(S)ervice bon");
         System.out.println("(F)aute");
         System.out.println("(A)ce");
