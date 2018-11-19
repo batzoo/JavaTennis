@@ -21,14 +21,19 @@ public class Jeu extends Echange {
         this.ptsJ2=0;
     }
     /** 
-     * @param j1 Joueur 1 du match
-     * @param j2 Joueur 2 du match
-     * @return Vainqueur du jeu, utilise la fonction vainqueur_point 
+     * @param j1 Joueur 1 du match (Serveur)
+     * @param j2 Joueur 2 du match (Retour)
+     * @return Vainqueur du jeu, utilise la fonction vainqueur_point_auto 
      */
-    public Joueur vainqueur_jeu(Joueur j1,Joueur j2){
+    public Joueur vainqueur_jeu(Joueur j1,Joueur j2,boolean auto){
         Joueur a;
        while(this.ptsJ1<4&&this.ptsJ2<4&&!(this.ptsJ1==3&&this.ptsJ2==3)){
-           a=vainqueur_point(j1,j2);
+           if(auto){
+                a=vainqueur_point_auto(j1,j2);
+           }
+           else{
+                a=vainqueur_point_manuel(j1,j2);
+           }
            if(a==j1){
                this.ptsJ1++;
            }
@@ -49,7 +54,7 @@ public class Jeu extends Echange {
            return j2;
        }
        else{
-           return avantage(j1,j2);
+           return avantage(j1,j2,auto);
        }
        
 
@@ -63,11 +68,16 @@ public class Jeu extends Echange {
     * @param j2
     * @return le vainqueur du jeu en cas d'égalité 
     */
-   public Joueur avantage(Joueur j1,Joueur j2){
+   public Joueur avantage(Joueur j1,Joueur j2,boolean auto){
        //System.out.println("AVANTAGE");
        Joueur a;
        while(this.ptsJ1<5&&this.ptsJ2<5&&!(this.ptsJ1==4&&this.ptsJ2==4)){
-           a=vainqueur_point(j1,j2);
+           if(auto){
+                a=vainqueur_point_auto(j1,j2);
+           }
+           else{
+               a=vainqueur_point_manuel(j1,j2);
+           }
            if(a==j1){
                this.ptsJ1++;
            }
@@ -90,7 +100,7 @@ public class Jeu extends Echange {
            else{
                this.ptsJ1--;
                this.ptsJ2--;
-               return avantage(j1,j2);
+               return avantage(j1,j2,auto);
            }
    } 
    

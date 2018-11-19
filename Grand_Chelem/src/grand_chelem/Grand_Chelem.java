@@ -15,8 +15,8 @@ public class Grand_Chelem {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Tournoi_H femme=new Tournoi_H('F');
-        Tournoi_H homme=new Tournoi_H('M');
+        Tournoi femme=new Tournoi('F');
+        Tournoi homme=new Tournoi('M');
         femme.tournoi_femmes();
         homme.tournoi_hommes();
         
