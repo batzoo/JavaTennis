@@ -79,9 +79,11 @@ public class Echange {
         if(service==0){
             service=deuxieme_service(sc);
             if(service==0){
+                System.out.println("Point Joueur 2");
                 return j2;
             }
             else if(service==1){
+                System.out.println("Point Joueur 1");
                 return j1;
             }
             else{
@@ -89,6 +91,7 @@ public class Echange {
             }
         }
         else if(service==1){
+            System.out.println("Point Joueur 1");
             return j1;
         }
         else{
@@ -114,6 +117,15 @@ public class Echange {
             else{
                 joueur=2;
             }
+            }
+            else{
+                if(joueur==2){
+                joueur=1;
+            }
+            else{
+                joueur=2;
+            }
+                
             }
         }
         if(joueur==1){
