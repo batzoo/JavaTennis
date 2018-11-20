@@ -37,9 +37,11 @@ public class Jeu extends Echange {
                 a=vainqueur_point_manuel(j1,j2);
            }
            if(a==j1){
+               this.stat.pointsJ1++;
                this.ptsJ1++;
            }
            else if (a==j2){
+               this.stat.pointsJ2++;
                this.ptsJ2++;
            }
           
@@ -93,10 +95,12 @@ public class Jeu extends Echange {
                a=vainqueur_point_manuel(j1,j2);
            }
            if(a==j1){
+               this.stat.pointsJ1++;
                this.ptsJ1++;
            }
            else{
-              this.ptsJ2++;
+               this.stat.pointsJ2++;
+               this.ptsJ2++;
            }
            //System.out.println(score(this.ptsJ1)+"/"+score(this.ptsJ2));
            }

@@ -21,6 +21,8 @@ public class Echange {
     double proba;
     boolean faute;
     int coup;
+    
+    Stats_match stat;
     public Echange(){
         this.faute=false;
         this.coup=0;
@@ -47,12 +49,12 @@ public class Echange {
        a=service_auto();
        // Si service_auto retourne 0, alors le joueur qui retourne gagne le point
        if(a==0){
+           this.stat.double_fauteJ1++;
            return j2;
        }
        else{
             while(!this.faute){
                 this.coup++;
-                
                 //System.out.println(this.coup);
                 this.faute=faute();
                 }
@@ -154,6 +156,12 @@ public class Echange {
         }
         else {return 1;}
     }
+    /**
+     * 
+     * @param sc Scanner de saisie
+     * @return Un int donnant s'il y a double faute ou non 
+     *         
+     */
     public int service(Scanner sc) {
     String saisie;
         System.out.println("(S)ervice bon");

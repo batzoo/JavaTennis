@@ -28,9 +28,12 @@ public class Match extends Set{
     int tour;
     /* SetsJ1 --> nombre de sets du Joueur 1*/
     int setsJ1;
-    
+    /**
+     * @param stat objet qui répertorie les différents tast du match
+     */
     /* SetsJ2 --> nombre de sets du Joueur 1*/
     int setsJ2;
+    
     /**
      * Constructor du match : Deux différents
      * Match homme --> le nombre de sets pour gagner = 3
@@ -43,6 +46,7 @@ public class Match extends Set{
         this.joueur1=joueur1;
         this.joueur2=joueur2;
         this.arbitre=arbitre;
+        this.stat=new Stats_match();
         if(genre=='M'){
             this.categorie="Simple Hommes";
             this.setGagnants=3;
@@ -52,6 +56,7 @@ public class Match extends Set{
             this.categorie="Simple Femmes";
             this.setGagnants=2;
         }
+        this.stat=new Stats_match();
         presentationMatch();
         
     
@@ -90,10 +95,11 @@ public class Match extends Set{
         while(this.setsJ1<this.setGagnants&&this.setsJ2<this.setGagnants&&!(this.setsJ1==(this.setGagnants-1)&&this.setsJ2==(this.setGagnants-1))){
             a=vainqueur_set(j1,j2,auto,affich);
             if(a==j1){
-                
+                this.stat.setsJ1++;
                 this.setsJ1++;
             }
             else if(a==j2){
+                this.stat.setsJ2++;
                 this.setsJ2++;
             }
             
@@ -101,15 +107,18 @@ public class Match extends Set{
         if(this.setsJ1==this.setGagnants){
             System.out.println("VAINQUEUR : "+j1.nomNaissance+" "+j1.prenom);
             System.out.println("SCORE : "+this.setsJ1+"/"+this.setsJ2);
+            this.stat.afficher_stats_match(this);
             return j1;
         }
         else if(this.setsJ2==this.setGagnants){
             System.out.println("VAINQUEUR : "+j2.nomNaissance+" "+j2.prenom);
             System.out.println("SCORE : "+this.setsJ1+"/"+this.setsJ2);
+            this.stat.afficher_stats_match(this);
             return j2;
         }
         else{
             a=vainqueur_set_final(j1,j2,auto,affich);
+            this.stat.afficher_stats_match(this);
             return a;
         }
     }

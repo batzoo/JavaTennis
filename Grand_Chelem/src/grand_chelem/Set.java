@@ -37,18 +37,22 @@ public class Set extends Jeu {
            }
            c=vainqueur_jeu(j1,j2,auto,affich);
            if(c==j1){
+               this.stat.jeuxJ1++;
                this.jeuxJ1++;
            }
            else if(c==j2){
+               this.stat.jeuxJ2++;
                this.jeuxJ2++;
            }
        }
        if(this.jeuxJ2<this.jeuxJ1){
+           this.stat.setsJ1++;
            System.out.println("SET JOUEUR 1");
            System.out.println("VAINQUEUR "+j1.prenom+" "+j1.nomNaissance);
            return j1;
        }
        else{
+           this.stat.setsJ2++;
            System.out.println("SET JOUEUR 2");
            System.out.println("VAINQUEUR "+j2.prenom+" "+j2.nomNaissance);
            return j2;
@@ -85,9 +89,11 @@ public class Set extends Jeu {
                a=vainqueur_jeu(j2,j1,auto,affich);
            }
            if(a==j1){
+               this.stat.jeuxJ1++;
                this.jeuxJ1++;
             }
            else if (a==j2){
+               this.stat.jeuxJ2++;
                this.jeuxJ2++;
             }
            serveur=changement_serveur(serveur);
@@ -136,9 +142,11 @@ public class Set extends Jeu {
            }
            a=vainqueur_jeu(j1,j2,auto,affich);
            if(a==j1){
+               this.stat.jeuxJ1++;
                this.jeuxJ1++;
        }
            else if (a==j2){
+               this.stat.jeuxJ2++;
                this.jeuxJ2++;
        }
        }
@@ -188,18 +196,21 @@ public class Set extends Jeu {
             }
             if(c==j1){
                 a++;
+               this.stat.pointsJ1++;
             }
             else if(c==j2){
+               this.stat.pointsJ2++;
                 b++;
             }
             
         }
         if(b<a){
-
+               this.stat.jeuxJ1++;
             System.out.println("SET JOUEUR 1");
             return j1;
         }
         else{
+            this.stat.jeuxJ2++;
             System.out.println("SET JOUEUR 2");
             return j2;
         }
