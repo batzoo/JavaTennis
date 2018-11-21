@@ -22,7 +22,7 @@ public class Echange {
     boolean faute;
     int coup;
     
-    Stats_match stat;
+    Stats stat;
     public Echange(){
         this.faute=false;
         this.coup=0;
@@ -49,7 +49,7 @@ public class Echange {
        a=service_auto();
        // Si service_auto retourne 0, alors le joueur qui retourne gagne le point
        if(a==0){
-           this.stat.double_fauteJ1++;
+           j1.stats.double_faute++;
            return j2;
        }
        else{
@@ -58,7 +58,13 @@ public class Echange {
                 //System.out.println(this.coup);
                 this.faute=faute();
                 }
-            if(this.coup%2==0){
+            if(this.coup==1){
+                this.coup=0;
+                j1.stats.aces++;
+                this.faute=false;
+                return j1;
+            }
+            else if(this.coup%2==0){
                 this.coup=0;
                 this.faute=false;
                 return j1;
@@ -82,22 +88,29 @@ public class Echange {
         if(service==0){
             service=deuxieme_service(sc);
             if(service==0){
+                j1.stats.double_faute++;
                 System.out.println("Point Joueur 2");
                 return j2;
             }
             else if(service==1){
+                j1.stats.deuxieme_serv++;
+                j1.stats.aces++;
                 System.out.println("Point Joueur 1");
                 return j1;
             }
             else{
+                j1.stats.deuxieme_serv++;
                 return echange_manuel(j1,j2,sc);
             }
         }
         else if(service==1){
+            j1.stats.premier_serv++;
+            j1.stats.aces++;
             System.out.println("Point Joueur 1");
             return j1;
         }
         else{
+            j1.stats.premier_serv++;
             return echange_manuel(j1,j2,sc);
         }
     }
@@ -175,6 +188,7 @@ public class Echange {
             else{
                 if(saisie.compareTo("F")==0||saisie.compareTo("f")==0){
                 return 0;
+                
                 }
                 else if(saisie.compareTo("A")==0||saisie.compareTo("a")==0){
                     return 1;

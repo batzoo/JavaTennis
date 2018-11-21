@@ -22,6 +22,7 @@ public class Joueur extends Personne
     String entraineur;
     char genre;
     String couleur;
+    Stats stats;
     //Construcor pour Joueur avec comme paramètres les différents attributs
     public Joueur(String nomNaissance,String prenom ,
                   char genre,DateTennis dateNaissance,String lieuNaissance,
@@ -33,6 +34,7 @@ public class Joueur extends Personne
         this.classement=classement;
         this.entraineur=entraineur;
         this.couleur=couleur;
+        this.stats=new Stats();
     }
     //Constructor pour Joueur aléatoire
     public Joueur(char genre,int classement){
@@ -42,7 +44,7 @@ public class Joueur extends Personne
         this.classement=classement;
         this.entraineur=entraineur_random();
         this.couleur=couleur_random();
-        
+        this.stats=new Stats();
         
     }
     /**

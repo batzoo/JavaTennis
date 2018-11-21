@@ -46,7 +46,7 @@ public class Match extends Set{
         this.joueur1=joueur1;
         this.joueur2=joueur2;
         this.arbitre=arbitre;
-        this.stat=new Stats_match();
+        this.stat=new Stats();
         if(genre=='M'){
             this.categorie="Simple Hommes";
             this.setGagnants=3;
@@ -56,7 +56,7 @@ public class Match extends Set{
             this.categorie="Simple Femmes";
             this.setGagnants=2;
         }
-        this.stat=new Stats_match();
+        this.stat=new Stats();
         presentationMatch();
         
     
@@ -95,11 +95,11 @@ public class Match extends Set{
         while(this.setsJ1<this.setGagnants&&this.setsJ2<this.setGagnants&&!(this.setsJ1==(this.setGagnants-1)&&this.setsJ2==(this.setGagnants-1))){
             a=vainqueur_set(j1,j2,auto,affich);
             if(a==j1){
-                this.stat.setsJ1++;
+                this.joueur1.stats.sets++;
                 this.setsJ1++;
             }
             else if(a==j2){
-                this.stat.setsJ2++;
+                this.joueur2.stats.sets++;
                 this.setsJ2++;
             }
             
