@@ -40,10 +40,15 @@ public class Spectateur extends Personne{
                     + this.prenom+" dort !!");
         }
     }
-    // Deux méthdoes permettant de changer l'état du spectateur : endormi ou réveillé
+    /**
+     * Méthode permettant d'endormir le spectateur
+     * */
     public void dormir(){
         this.etat=false;
     }
+    /**
+     * Méthode permettant de réveiller le spectateur
+     */
     public void reveil(){
         this.etat=true;
     }

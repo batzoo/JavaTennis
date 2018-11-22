@@ -22,7 +22,7 @@ public class Echange {
     boolean faute;
     int coup;
     
-    Stats stat;
+    Stats_joueur stat;
     public Echange(){
         this.faute=false;
         this.coup=0;

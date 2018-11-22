@@ -10,7 +10,7 @@ package grand_chelem;
  *
  * @author ISEN
  */
-public class Stats {
+public class Stats_joueur {
     int aces;
     int sets;
     int jeux;
@@ -23,7 +23,7 @@ public class Stats {
     int balle_break_gagnee;
     
     Match z;
-    public Stats(){
+    public Stats_joueur(){
         this.aces=0;
         this.sets=0;
         this.jeux=0;
@@ -35,6 +35,10 @@ public class Stats {
         this.balle_break=0;
         this.balle_break_gagnee=0;
     }
+    /**
+     * Fonction affichant les stats du match
+     * @param match Match en cours
+     */
     public void afficher_stats_match(Match match){
         System.out.println("Joueurs : "+match.joueur1.nom_Prenom()+" <--> "+match.joueur2.nom_Prenom());
         System.out.println("Sets : "+match.joueur1.stats.sets+" <--> "+match.joueur2.stats.sets);

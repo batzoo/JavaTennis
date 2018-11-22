@@ -46,7 +46,7 @@ public class Match extends Set{
         this.joueur1=joueur1;
         this.joueur2=joueur2;
         this.arbitre=arbitre;
-        this.stat=new Stats();
+        this.stat=new Stats_joueur();
         if(genre=='M'){
             this.categorie="Simple Hommes";
             this.setGagnants=3;
@@ -56,7 +56,7 @@ public class Match extends Set{
             this.categorie="Simple Femmes";
             this.setGagnants=2;
         }
-        this.stat=new Stats();
+        this.stat=new Stats_joueur();
         presentationMatch();
         
     

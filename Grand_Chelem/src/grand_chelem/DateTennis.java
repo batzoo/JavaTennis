@@ -11,15 +11,24 @@ import java.util.Calendar;
  * @author Baptiste Delpierre/Giovanni Haddadi
  */
 public class DateTennis {
+    
     protected int jour;
     protected int mois;
     protected int annee;
-    
+    /**
+     * Constructor pour date précise
+     * @param jour jour de la dage
+     * @param mois mois de la date
+     * @param annee année de la date
+     */
     public DateTennis(int jour,int mois,int annee){
         this.jour=jour;
         this.mois=mois;
         this.annee=annee;
     }
+    /**
+     * Constructor avec date 0/0/0
+     */
     public DateTennis(){
         this.jour=0;
         this.mois=0;
@@ -60,7 +69,10 @@ public class DateTennis {
         }
         return this;
     }
-    
+    /**
+     * 
+     * @return Une date de décès au hasard
+     */
      public DateTennis dateDeces(){
         Calendar dateOrdi = Calendar.getInstance();
         this.annee = (int)( Math.random() *((dateOrdi.get(Calendar.YEAR))-date_naissance_hasard().annee) ) + date_naissance_hasard().annee;

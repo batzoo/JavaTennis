@@ -19,7 +19,7 @@ public class Grand_Chelem {
         Tournoi homme=new Tournoi('M');
         femme.tournoi_femmes();
         homme.tournoi_hommes();
-        Stats s=new Stats();
+        Stats_joueur s=new Stats_joueur();
         Arbitre arb=new Arbitre('M');
         Joueur_Homme a=new Joueur_Homme('M',1);
         Joueur_Homme b=new Joueur_Homme('M',1);
