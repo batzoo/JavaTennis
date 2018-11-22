@@ -36,6 +36,9 @@ public class Jeu extends Echange {
            else{
                 a=vainqueur_point_manuel(j1,j2);
            }
+           if(this.ptsJ2==3){
+               j2.stats.balle_break++;
+           }
            if(a==j1){
                j1.stats.points++;
                this.ptsJ1++;
@@ -54,6 +57,7 @@ public class Jeu extends Echange {
        else if(this.ptsJ2==4){
            this.ptsJ1=0;
            this.ptsJ2=0;
+           j2.stats.balle_break_gagnee++;
            return j2;
        }
        else{
@@ -113,6 +117,7 @@ public class Jeu extends Echange {
            else if(this.ptsJ2==5){
                this.ptsJ1=0;
                this.ptsJ2=0;
+               j2.stats.balle_break_gagnee++;
                return j2;
        }
            else{

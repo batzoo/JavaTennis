@@ -46,7 +46,7 @@ public class Echange {
      */
     public Joueur vainqueur_point_auto(Joueur j1,Joueur j2){
         int a;
-       a=service_auto();
+       a=service_auto(j1);
        // Si service_auto retourne 0, alors le joueur qui retourne gagne le point
        if(a==0){
            j1.stats.double_faute++;
@@ -77,8 +77,11 @@ public class Echange {
         }
     }
     /** 
-     * Fonction du service_auto
-     * @return 0 si double faute, 1 si service_auto bon
+     * Fonction qui retourne qui à gagné le point (manuel)
+     * avec les services
+     * @param j1 Joueur 1 du match
+     * @param j2 Joueur 2 du match
+     * @return Le Joueur ayant gagné le point
      */
     public Joueur vainqueur_point_manuel(Joueur j1,Joueur j2){
         int service;
@@ -114,6 +117,13 @@ public class Echange {
             return echange_manuel(j1,j2,sc);
         }
     }
+    /**
+     * 
+     * @param j1 Joueur 1 du match
+     * @param j2 Joueur 2 du match
+     * @param sc Scanner d'entrée
+     * @return le joueur ayant gagné le point après les services (manuel)
+     */
     public Joueur echange_manuel(Joueur j1,Joueur j2,Scanner sc) {
         String faute;
         int joueur=2;
@@ -156,18 +166,26 @@ public class Echange {
         }
         
     }
-    public int service_auto(){
+    /** 
+     * Fonction du service_auto
+     * @return 0 si double faute, 1 si service_auto bon
+     */
+    public int service_auto(Joueur j1){
         this.faute=faute();
         if(this.faute==true){
             this.faute=faute();
             if(this.faute==true){
+                j1.stats.double_faute++;
                 return 0;
             }
             else{
+                j1.stats.deuxieme_serv++;
                 return 1;
             }
         }
-        else {return 1;}
+        else {
+            j1.stats.premier_serv++;
+            return 1;}
     }
     /**
      * 
@@ -203,6 +221,11 @@ public class Echange {
         }
         return service(sc);
     }
+    /** 
+     * Fonction effectuant le deuxieme service du joueur 
+     * @param sc Scanner d'entrée
+     * @return un int : 0 si faute 1 si ace, et 2 si service bon
+     */
     public int deuxieme_service(Scanner sc) {
         String saisie;
         System.out.println("Service bon par défaut ou si mauvaise saisie");

@@ -98,7 +98,6 @@ public class Tournoi {
                 affichage=true;
                 this.deuxieme_tour.add(this.matchs.vainqueur_match(automan,affichage));
             }
-            
         }
         System.out.println("Sont qualifiés au 2e tour : ");
         for (int i=0;i<64;i++){
@@ -270,7 +269,7 @@ public class Tournoi {
         this.finale('M');
         
     }
-    /*
+    /**
     Fonction qui simule tous les tours du tournoi femme
     */
     public void tournoi_femmes() {
@@ -283,6 +282,12 @@ public class Tournoi {
         this.finale('F');
         
     }
+    /**
+     * Fonction pour choix de l'utilisateur 
+     * entre automatique et manuel 
+     * @param sc Scanner de saisie
+     * @return true pour automatique et false pour manuel
+     */
     public boolean saisieAuto_Manuel(Scanner sc) {
         String saisie;
         System.out.println("Manuel ou Automatique : ");
@@ -308,7 +313,11 @@ public class Tournoi {
             return saisieAuto_Manuel(sc);
         }
     }
-   
+   /**
+    * Fonction pour choix de l'utilisateur 
+    * pour afficher ou non les détails du match
+    * @return true si oui et false pour non
+    */
 public boolean saisie_affichage(){
         String saisie;
         Scanner sc=new Scanner(System.in);

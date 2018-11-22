@@ -12,36 +12,42 @@ package grand_chelem;
 public class Arbitre extends Personne {
     /**
      * Constructor
-     * @param nomNaissance
-     * @param prenom
-     * @param genre
-     * @param dateNaissance
-     * @param lieuNaissance
-     * @param dateDeces
-     * @param nationalite
-     * @param taille
-     * @param poids 
+     * @param nomNaissance Nom de naissance de l'arbitre
+     * @param prenom prenom de l'arbitre
+     * @param genre sexe de l'arbitre
+     * @param dateNaissance date de naissance de l'arbitre
+     * @param lieuNaissance lieu de naissance de l'arbitre
+     * @param dateDeces date de décès de l'arbitre
+     * @param nationalite nationalité de l'arbitre
+     * @param taille taille de l'arbitre
+     * @param poids poids de l'arbitre
      */
     public Arbitre(String nomNaissance, String prenom, char genre, DateTennis dateNaissance, String lieuNaissance, DateTennis dateDeces, String nationalite, int taille, float poids) {
         
         super(nomNaissance, prenom, genre, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids);
     } 
-    
+    /**
+     * Constructor d'arbitre aléatoire
+     * @param genre  sexe de l'arbitre
+     */
     public Arbitre(char genre){
         super(genre);
     }
-    public void annonceScore(){
-        
-    }
-    
-    public void faute(){
-        
-    }
-    /** En cas de litige, fonction qui retourne la décision de l'arbitre
-     * 
+    /**
+     * Fonction permettant de donner le score du jeu en cours
+     * @param j Jeu dans lequel est contenu le score du jeu 
      */
-    public void decision(){
-        
+    public void annonceScore(Jeu j){
+        System.out.println("Score : "+j.score(j.ptsJ1)+"/"+j.score(j.ptsJ2));
+    }
+    /**
+     * Fonction faisnat dire à l'arbitre "faute" lorsqu'il y a faute
+     * @param e Echange en cours
+     */
+    public void faute(Echange e){
+        if(e.faute==true){
+            System.out.println("Mr "+this.nomNaissance+" : FAUTE !");
+        }
     }
     
 }
