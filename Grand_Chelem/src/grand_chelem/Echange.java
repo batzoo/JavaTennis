@@ -141,6 +141,7 @@ public class Echange {
      */
     public Joueur echange_manuel(Joueur j1,Joueur j2,Scanner sc) {
         String faute;
+        
         int joueur=2;
         int a=0;
         while(a==0){ 
