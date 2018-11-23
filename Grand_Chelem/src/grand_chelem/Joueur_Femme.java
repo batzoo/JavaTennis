@@ -11,13 +11,13 @@ package grand_chelem;
  */
 public class Joueur_Femme extends Joueur{
     
-    String tenue;
+    private String tenue;
     /*
      *Constructeur pour joueur en entrant les différents attributs 
      */
     public Joueur_Femme(String nomNaissance, String prenom, char genre, DateTennis dateNaissance, String lieuNaissance, DateTennis dateDeces, String nationalite, int taille, float poids, char main, String sponsor, int classement, String entraineur,String couleur) {
         super(nomNaissance, prenom, genre, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids, main, sponsor, classement, entraineur,couleur);
-        this.tenue="Jupe"+super.couleur;
+        this.tenue="Jupe"+super.getCouleur();
         //resentationJoueur_F();
     }
     /*
@@ -31,9 +31,14 @@ public class Joueur_Femme extends Joueur{
      * @param couleur Couleur de la jupe de la joueuse 
      */
     
+    
+    public String getTenue(){
+        return tenue;
+    }
+
     @Override
-    public void changementCouleur(String couleur){
-        super.couleur=couleur;
+    public void changementCouleur(String couleur) {
+        super.setCouleur(couleur);
         System.out.println("Ma jupe a changé de couleur, elle est "+couleur+" maintenant ! :)");
     }
     /**
@@ -44,7 +49,7 @@ public class Joueur_Femme extends Joueur{
     public void PresentationJoueur_F(){
         System.out.print("Bonjour je suis "+this.prenom+" "+this.nomNaissance+" née à "+this.lieuNaissance+" en ");
         dateNaissance.afficherDate();
-        System.out.println("Ma nationalité est"+this.nationalite+"Ma jupe est "+this.couleur);
-        System.out.println("je suis n°"+this.classement+" mondial");
+        System.out.println("Ma nationalité est"+this.nationalite+"Ma jupe est "+this.getCouleur());
+        System.out.println("je suis n°"+this.getClassement()+" mondial");
     }
 }

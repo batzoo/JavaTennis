@@ -11,7 +11,7 @@ package grand_chelem;
  */
 public class Spectateur extends Personne{
     
-    boolean etat;
+    private boolean etat;
     public Spectateur(String nomNaissance, String prenom, char genre, DateTennis dateNaissance, String lieuNaissance, DateTennis dateDeces, String nationalite, int taille, float poids) {
         super(nomNaissance, prenom, genre, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids);
         this.etat=true;
@@ -20,6 +20,16 @@ public class Spectateur extends Personne{
         super(genre);
         this.etat=true;
     }
+
+    public boolean isEtat() {
+        return etat;
+    }
+
+    public void setEtat(boolean etat) {
+        this.etat = etat;
+    }
+    
+    
     // fonction qui permet au spectateur de crier
     public void crier(){
         if(this.etat==true){

@@ -14,25 +14,25 @@ import java.util.ArrayList;
 public class Match extends Set{
     public ArrayList<Spectateur> gradins=new ArrayList<>();
     /** Catégorie du match (Simple Homme ou Femme)*/
-    public String categorie;
+    private String categorie;
     /** Joueur qui sert */
-    public Joueur joueur1;
+    private Joueur joueur1;
     /**  Joueur qui reçoit*/
-    public Joueur joueur2;
+    private Joueur joueur2;
     /** Booléen donnant le mode utilisé : Auto ou Manuel */
-    public boolean auto;
+    private boolean auto;
     /* Arbitre du match */
-    public Arbitre arbitre;
+    private Arbitre arbitre;
     /** Nombre de sets nécéssaire pour gagner le match : 2 pour femmes, 3 pour hommes */
-    int setGagnants;
-    int tour;
+    private int setGagnants;
+    private int tour;
     /* SetsJ1 --> nombre de sets du Joueur 1*/
-    int setsJ1;
+    private int setsJ1;
     /**
      * @param stat objet qui répertorie les différents tast du match
      */
     /* SetsJ2 --> nombre de sets du Joueur 1*/
-    int setsJ2;
+    private int setsJ2;
     
     /**
      * Constructor du match : Deux différents
@@ -61,6 +61,78 @@ public class Match extends Set{
         
     
     }
+
+    public String getCategorie() {
+        return categorie;
+    }
+
+    public Joueur getJoueur1() {
+        return joueur1;
+    }
+
+    public Joueur getJoueur2() {
+        return joueur2;
+    }
+
+    public boolean isAuto() {
+        return auto;
+    }
+
+    public Arbitre getArbitre() {
+        return arbitre;
+    }
+
+    public int getSetGagnants() {
+        return setGagnants;
+    }
+
+    public int getTour() {
+        return tour;
+    }
+
+    public int getSetsJ1() {
+        return setsJ1;
+    }
+
+    public int getSetsJ2() {
+        return setsJ2;
+    }
+
+    public void setCategorie(String categorie) {
+        this.categorie = categorie;
+    }
+
+    public void setJoueur1(Joueur joueur1) {
+        this.joueur1 = joueur1;
+    }
+
+    public void setJoueur2(Joueur joueur2) {
+        this.joueur2 = joueur2;
+    }
+
+    public void setAuto(boolean auto) {
+        this.auto = auto;
+    }
+
+    public void setArbitre(Arbitre arbitre) {
+        this.arbitre = arbitre;
+    }
+
+    public void setSetGagnants(int setGagnants) {
+        this.setGagnants = setGagnants;
+    }
+
+    public void setTour(int tour) {
+        this.tour = tour;
+    }
+
+    public void setSetsJ1(int setsJ1) {
+        this.setsJ1 = setsJ1;
+    }
+
+    public void setSetsJ2(int setsJ2) {
+        this.setsJ2 = setsJ2;
+    }
     
     /**
      * 
@@ -68,7 +140,7 @@ public class Match extends Set{
      * @return Le nombre de points en jeu pour le classement
      */
     public float calcul_PointsATP(Match duel){
-        int diff=duel.joueur1.classement-duel.joueur2.classement;
+        int diff=duel.joueur1.getClassement()-duel.joueur2.getClassement();
         float coeff=diff/3+4;
         return coeff;
     }
@@ -94,6 +166,7 @@ public class Match extends Set{
         
         while(this.setsJ1<this.setGagnants&&this.setsJ2<this.setGagnants&&!(this.setsJ1==(this.setGagnants-1)&&this.setsJ2==(this.setGagnants-1))){
             a=vainqueur_set(j1,j2,auto,affich);
+            
             if(a==j1){
                 this.joueur1.stats.sets++;
                 this.setsJ1++;
@@ -122,6 +195,23 @@ public class Match extends Set{
             return a;
         }
     }
-
     
+    public void endormir_spec(){
+        int a;
+        for(int i=0;i<this.gradins.size();i++){
+            a=(int)(Math.random()*30);
+            if(a==0){
+                this.gradins.get(i).dormir();
+            }
+        }
+    }
+    public void evenement_Spec(){
+        int a;
+        for(int i=0;i<this.gradins.size();i++){
+            a=(int)(Math.random()*10);
+            if(a==0){
+                this.gradins.get(i).crier();
+            }
+        }
+    }
 }

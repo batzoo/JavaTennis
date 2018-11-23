@@ -10,13 +10,13 @@ package grand_chelem;
  * @author Baptiste Delpierre/Giovanni Haddadi
  */
 public class Joueur_Homme extends Joueur {
-    String tenue;
+    private String tenue;
      /*
     Constructor pour Joueur Homme en entrant les différents attributs
     */
     public Joueur_Homme(String nomNaissance, String prenom, char genre, DateTennis dateNaissance, String lieuNaissance, DateTennis dateDeces, String nationalite, int taille, float poids, char main, String sponsor, int classement, String entraineur,String couleur) {
         super(nomNaissance, prenom, genre, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids, main, sponsor, classement, entraineur,couleur);
-        this.tenue="Short"+this.couleur;
+        this.tenue="Short"+this.getCouleur();
         PresentationJoueur_H();
     }
     /*
@@ -24,9 +24,10 @@ public class Joueur_Homme extends Joueur {
     */
     public Joueur_Homme(char genre,int classement){
         super(genre,classement);
-        this.tenue="Short"+this.couleur;
+        this.tenue="Short"+this.getCouleur();
         //PresentationJoueur_H();
     }
+    
     /**
      * 
      * @param couleur Couleur du short le changement de couleur du short du joueur
@@ -34,7 +35,7 @@ public class Joueur_Homme extends Joueur {
      */
     @Override
     public void changementCouleur(String couleur){
-        super.couleur=couleur;
+        super.setCouleur(couleur);
         System.out.println("Mon short a changé de couleur, il est "+couleur+" maintenant ! :)");
     }
     /** 
@@ -45,8 +46,8 @@ public class Joueur_Homme extends Joueur {
         System.out.print("Bonjour je suis "+this.prenom+" "+this.nomNaissance+" né à "+this.lieuNaissance+" en ");
         dateNaissance.afficherDate();
         
-        System.out.println("Ma nationalité est "+this.nationalite+" et mon short est "+this.couleur);
-        System.out.println("je suis n°"+this.classement+" mondial");
+        System.out.println("Ma nationalité est "+this.nationalite+" et mon short est "+this.getCouleur());
+        System.out.println("je suis n°"+this.getClassement()+" mondial");
     }
    
 }

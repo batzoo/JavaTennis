@@ -38,14 +38,14 @@ public class Arbitre extends Personne {
      * @param j Jeu dans lequel est contenu le score du jeu 
      */
     public void annonceScore(Jeu j){
-        System.out.println("Score : "+j.score(j.ptsJ1)+"/"+j.score(j.ptsJ2));
+        System.out.println("Score : "+j.score(j.getPtsJ1())+"/"+j.score(j.getPtsJ2()));
     }
     /**
      * Fonction faisnat dire à l'arbitre "faute" lorsqu'il y a faute
      * @param e Echange en cours
      */
     public void faute(Echange e){
-        if(e.faute==true){
+        if(e.isFaute()==true){
             System.out.println("Mr "+this.nomNaissance+" : FAUTE !");
         }
     }

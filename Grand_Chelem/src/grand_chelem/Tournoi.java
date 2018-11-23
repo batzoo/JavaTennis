@@ -18,7 +18,7 @@ public class Tournoi {
     premier_tour contiendra 128 joueurs, deuxieme_tour 64, etc...
     */
     Match matchs;
-    Arbitre arb=new Arbitre('M');
+    ArrayList<Arbitre> arb;
     //Différentes étapes du tournoi sous forme de liste 
     
     ArrayList<Joueur> premier_tour;  
@@ -50,6 +50,12 @@ public class Tournoi {
                 a=new Joueur_Femme('F',i);
                 this.premier_tour.add(a);
             }     
+        }
+        this.arb=new ArrayList<>();
+        Arbitre b;
+        for (int i=0;i<10;i++){
+            b=new Arbitre('M');
+            this.arb.add(b);
         }
         this.deuxieme_tour=new ArrayList<>();       
         this.troisieme_tour=new ArrayList<>();   
@@ -86,9 +92,11 @@ public class Tournoi {
     public void premierTour(char genre){
         boolean automan;
         boolean affichage;
+        int z;
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<128;i=i+2){
-            this.matchs=new Match(this.premier_tour.get(i),this.premier_tour.get(i+1),arb,genre);
+            z=(int)(Math.random()*10);
+            this.matchs=new Match(this.premier_tour.get(i),this.premier_tour.get(i+1),arb.get(z),genre);
             automan=saisieAuto_Manuel(sc);
             if(automan){
                 affichage=saisie_affichage();
@@ -112,9 +120,11 @@ public class Tournoi {
     public void deuxiemeTour(char genre) {
         boolean automan;
         boolean affichage;
+        int z;
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<64;i=i+2){
-            this.matchs=new Match(this.deuxieme_tour.get(i),this.deuxieme_tour.get(i+1),arb,genre);
+            z=(int)(Math.random()*10);
+            this.matchs=new Match(this.deuxieme_tour.get(i),this.deuxieme_tour.get(i+1),arb.get(i),genre);
             automan=saisieAuto_Manuel(sc);
             if(automan){
                 affichage=saisie_affichage();
@@ -138,10 +148,12 @@ public class Tournoi {
     public void troisiemeTour(char genre){
         boolean automan;
         boolean affichage;
+        int z ;
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<32;i=i+2){
+            z=(int)(Math.random()*10);
             automan=saisieAuto_Manuel(sc);
-            this.matchs=new Match(this.troisieme_tour.get(i),this.troisieme_tour.get(i+1),arb,genre);
+            this.matchs=new Match(this.troisieme_tour.get(i),this.troisieme_tour.get(i+1),arb.get(z),genre);
             if(automan){
                 affichage=saisie_affichage();
                 this.huitieme_de_finale.add(this.matchs.vainqueur_match(automan,affichage));
@@ -164,10 +176,12 @@ public class Tournoi {
     public void huitiemes(char genre){
         boolean automan;
         boolean affichage;
+        int z;
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<16;i=i+2){
+            z=(int)(Math.random()*10);
             automan=saisieAuto_Manuel(sc);
-            this.matchs=new Match(this.huitieme_de_finale.get(i),this.huitieme_de_finale.get(i+1),arb,genre);
+            this.matchs=new Match(this.huitieme_de_finale.get(i),this.huitieme_de_finale.get(i+1),arb.get(z),genre);
             if(automan){
                 affichage=saisie_affichage();
                 this.quart_de_finale.add(this.matchs.vainqueur_match(automan,affichage));
@@ -190,10 +204,12 @@ public class Tournoi {
     public void quarts(char genre) {
         boolean automan;
         boolean affichage;
+        int z ;
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<8;i=i+2){
+            z=(int)(Math.random()*10);
             automan=saisieAuto_Manuel(sc);
-            this.matchs=new Match(this.quart_de_finale.get(i),this.quart_de_finale.get(i+1),arb,genre);
+            this.matchs=new Match(this.quart_de_finale.get(i),this.quart_de_finale.get(i+1),arb.get(z),genre);
             if(automan){
                 affichage=saisie_affichage();
                 this.demi_finale.add(this.matchs.vainqueur_match(automan,affichage));
@@ -216,10 +232,12 @@ public class Tournoi {
     public void demies(char genre) {
         boolean automan;
         boolean affichage;
+        int z;
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<4;i=i+2){
             automan=saisieAuto_Manuel(sc);
-            this.matchs=new Match(this.demi_finale.get(i),this.demi_finale.get(i+1),arb,genre);
+            z=(int)(Math.random()*10);
+            this.matchs=new Match(this.demi_finale.get(i),this.demi_finale.get(i+1),arb.get(z),genre);
             if(automan){
                 affichage=saisie_affichage();
                 this.finale.add(this.matchs.vainqueur_match(automan,affichage));
@@ -242,9 +260,11 @@ public class Tournoi {
     public void finale(char genre) {
         boolean automan;
         boolean affichage;
+        int z;
+        z=(int)(Math.random()*10);
         Scanner sc=new Scanner(System.in);
         automan=saisieAuto_Manuel(sc);
-        this.matchs=new Match(this.finale.get(0),this.finale.get(1),arb,genre);
+        this.matchs=new Match(this.finale.get(0),this.finale.get(1),arb.get(z),genre);
         if(automan){
                 affichage=saisie_affichage();
                 this.finale.add(this.matchs.vainqueur_match(automan,affichage));

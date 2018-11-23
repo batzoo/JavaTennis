@@ -16,12 +16,12 @@ public class Joueur extends Personne
      * @param main D pour droitier G pour gaucher
      * 
      */
-    char main;
-    String sponsor;
-    int classement;
-    String entraineur;
-    char genre;
-    String couleur;
+    private char main;
+    private String sponsor;
+    private int classement;
+    private String entraineur;
+    private char genre;
+    private String couleur;
     Stats_joueur stats;
     //Construcor pour Joueur avec comme paramètres les différents attributs
     public Joueur(String nomNaissance,String prenom ,
@@ -47,6 +47,55 @@ public class Joueur extends Personne
         this.stats=new Stats_joueur();
         
     }
+
+    public char getMain() {
+        return main;
+    }
+
+    public String getSponsor() {
+        return sponsor;
+    }
+
+    public int getClassement() {
+        return classement;
+    }
+
+    public String getEntraineur() {
+        return entraineur;
+    }
+
+    public char getGenre() {
+        return genre;
+    }
+
+    public String getCouleur() {
+        return couleur;
+    }
+
+    public void setMain(char main) {
+        this.main = main;
+    }
+
+    public void setSponsor(String sponsor) {
+        this.sponsor = sponsor;
+    }
+
+    public void setClassement(int classement) {
+        this.classement = classement;
+    }
+
+    public void setEntraineur(String entraineur) {
+        this.entraineur = entraineur;
+    }
+
+    public void setGenre(char genre) {
+        this.genre = genre;
+    }
+
+    public void setCouleur(String couleur) {
+        this.couleur = couleur;
+    }
+    
     /**
      * 
      * @return Le nom et prénom du joueur séparés d'un espace

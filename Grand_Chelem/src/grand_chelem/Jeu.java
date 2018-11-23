@@ -13,12 +13,22 @@ public class Jeu extends Echange {
      * @param ptsJ1 le nombre de points du Joueur 1 pendant le jeu
      * @param ptsJ2 le nombre de points du Joueur 2 pendant le jeu
      */
-    int ptsJ1;
-    int ptsJ2;
+    private int ptsJ1;
+    private int ptsJ2;
     public Jeu(){
         this.ptsJ1=0;
         this.ptsJ2=0;
     }
+
+    public int getPtsJ1() {
+        return ptsJ1;
+    }
+
+    public int getPtsJ2() {
+        return ptsJ2;
+    }
+    
+    
     /** 
      * @param j1 Joueur 1 du match (Serveur)
      * @param j2 Joueur 2 du match (Retour)

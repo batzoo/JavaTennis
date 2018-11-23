@@ -13,14 +13,32 @@ import static java.lang.Math.abs;
  */
 public class Set extends Jeu {
     // Jeux du joueur 1
-    int jeuxJ1;
+    private int jeuxJ1;
     // Jeux du joueur 2
-    int jeuxJ2;
+    private int jeuxJ2;
     //Constructor : mets les jeux à 0
     public Set(){
         this.jeuxJ1=0;
         this.jeuxJ2=0;
     }
+
+    public int getJeuxJ1() {
+        return jeuxJ1;
+    }
+
+    public int getJeuxJ2() {
+        return jeuxJ2;
+    }
+
+    public void setJeuxJ1(int jeuxJ1) {
+        this.jeuxJ1 = jeuxJ1;
+    }
+
+    public void setJeuxJ2(int jeuxJ2) {
+        this.jeuxJ2 = jeuxJ2;
+    }
+    
+    
     /**
      * 
      * @param j1 Joueur 1 du match

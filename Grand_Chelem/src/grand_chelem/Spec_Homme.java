@@ -10,7 +10,7 @@ package grand_chelem;
  * @author Baptiste Delpierre/Giovanni Haddadi
  */
 public class Spec_Homme extends Spectateur {
-    String tenue;
+    private String tenue;
     public Spec_Homme(String nomNaissance, String prenom, char genre, DateTennis dateNaissance, String lieuNaissance, DateTennis dateDeces, String nationalite, int taille, float poids) {
         super(nomNaissance, prenom, genre, dateNaissance, lieuNaissance, dateDeces, nationalite, taille, poids);
         this.tenue="Chemise";
@@ -23,4 +23,13 @@ public class Spec_Homme extends Spectateur {
         super(genre);
         this.tenue="Chemise";
     }
+
+    public String getTenue() {
+        return tenue;
+    }
+
+    public void setTenue(String tenue) {
+        this.tenue = tenue;
+    }
+    
 }

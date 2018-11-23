@@ -18,25 +18,40 @@ public class Echange {
      * @param faute variable boolean : true s'il y af aute, et false s'il n'y a pas faute
      * @param coup numéro du coup dans l'échange 
      */
-    double proba;
-    boolean faute;
-    int coup;
+    private double proba;
+    private boolean faute;
+    private int coup;
     
-    Stats_joueur stat;
+    protected Stats_joueur stat;
     public Echange(){
         this.faute=false;
         this.coup=0;
         this.proba=0;
     }
-    /** 
-     * 
+
+    
+    public double getProba(){ 
+        
+        return proba;
+        
+    }
+
+    public boolean isFaute() {
+        return faute;
+    }
+
+    public int getCoup() {
+        return coup;
+    }
+    
+    /**
+     *
      * @return un boolean indiquant s'il y a faute
      */
-    public boolean faute(){ 
-        
+
+    public boolean faute() {
         this.proba=Math.random() ;
         return this.proba <= 0.1;
-        
     }
     /**
      * 
@@ -254,5 +269,6 @@ public class Echange {
         }
         return deuxieme_service(sc);
     }
+    
     }
     
