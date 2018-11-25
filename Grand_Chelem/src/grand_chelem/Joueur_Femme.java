@@ -5,6 +5,8 @@
  */
 package grand_chelem;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Baptiste Delpierre/Giovanni Haddadi

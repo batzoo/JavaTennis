@@ -73,11 +73,10 @@ public class DateTennis {
      * 
      * @return Une date de décès au hasard
      */
-     public DateTennis dateDeces(){
+     public void dateDeces(){
         Calendar dateOrdi = Calendar.getInstance();
         this.annee = (int)( Math.random() *((dateOrdi.get(Calendar.YEAR))-date_naissance_hasard().annee) ) + date_naissance_hasard().annee;
         this.mois = (int)(Math.random()*11)+1;
         this.jour = (int)(Math.random()*30)+1;
-        return this;
     }
 }

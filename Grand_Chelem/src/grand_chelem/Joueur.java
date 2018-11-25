@@ -5,6 +5,8 @@
  */
 package grand_chelem;
 
+import java.util.Scanner;
+
 
 /**
  *
@@ -20,7 +22,6 @@ public class Joueur extends Personne
     private String sponsor;
     private int classement;
     private String entraineur;
-    private char genre;
     private String couleur;
     Stats_joueur stats;
     //Construcor pour Joueur avec comme paramètres les différents attributs
@@ -46,6 +47,15 @@ public class Joueur extends Personne
         this.couleur=couleur_random();
         this.stats=new Stats_joueur();
         
+    }
+    public Joueur(Scanner sc){
+        super(sc);
+        saisieMain(sc);
+        saisieSponsor(sc);
+        saisieEntraineur(sc);
+        saisieCouleur(sc);
+        this.PresentationJoueur();
+        this.stats=new Stats_joueur();
     }
 
     public char getMain() {
@@ -147,5 +157,63 @@ public class Joueur extends Personne
      */
     public void changementCouleur(String couleur){
         this.couleur=couleur;
+    }
+    public String saisieSponsor(Scanner sc){
+        System.out.println("Saisissez Sponsor : ");
+        System.out.println("Si vous entrez des nombres, ils seront supprimés");
+        System.out.println("Et les espaces remplacés par des '-'");
+        String saisie=sc.nextLine();
+        saisie=saisie.replaceAll("[*0-9]", "");
+        saisie=saisie.replaceAll(" ", "-");
+        System.out.println(saisie);
+        return saisie;
+    }
+    public String saisieEntraineur(Scanner sc){
+        System.out.println("Saisissez votre Entraineur : ");
+        System.out.println("Si vous entrez des nombres, ils seront supprimés");
+        String saisie=sc.nextLine();
+        saisie=saisie.replaceAll("[*0-9]", "");
+        System.out.println(saisie);
+        return saisie;
+    }
+    public String saisieCouleur(Scanner sc){
+        System.out.println("Saisissez votre couleur en jeu : ");
+        System.out.println("Si vous entrez des nombres, ils seront supprimés");
+        String saisie=sc.nextLine();
+        saisie=saisie.replaceAll("[*0-9]", "");
+        System.out.println(saisie);
+        return saisie;
+    }
+    public char saisieMain(Scanner sc){
+        String saisie;
+        System.out.println("Saisissez votre main forte ");
+        System.out.println("D : Droite ");
+        System.out.println("G : Gauche ");
+        saisie=sc.nextLine();
+        try{
+            if(!(saisie.compareTo("D")==0||saisie.compareTo("d")==0||saisie.compareTo("G")==0||saisie.compareTo("g")==0)){
+                throw new Exception("Veuillez saisir D ou G ");
+            }
+            else{
+                if(saisie.compareTo("d")==0||saisie.compareTo("g")==0){
+                    String toUpperCase = saisie.toUpperCase();
+                    return toUpperCase.charAt(0);
+                    
+                }
+                else{
+                return saisie.charAt(0);
+                }
+            }
+        }
+        catch(Exception mauvaise_saisie) {
+            System.err.println(mauvaise_saisie.getMessage());
+            return saisieMain(sc);
+        }
+     }
+    public void PresentationJoueur(){
+        System.out.print("Bonjour je suis "+this.prenom+" "+this.nomNaissance+" née à "+this.lieuNaissance+" en ");
+        dateNaissance.afficherDate();
+        System.out.println("Ma nationalité est"+this.nationalite+"Ma jupe est "+this.getCouleur());
+        System.out.println("je suis n°"+this.getClassement()+" mondial");
     }
 }

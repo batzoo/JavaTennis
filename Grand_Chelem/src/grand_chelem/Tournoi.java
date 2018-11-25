@@ -65,6 +65,48 @@ public class Tournoi {
         this.finale=new ArrayList<>();  
         this.lieuTournoi=lieuT_random();
         this.surface=surface_terrain(this.lieuTournoi);
+        presentation_joueurs_tournoi(this.premier_tour);
+    }
+    /**
+     * Constructor avec joueur de l'utilisateur
+     * @param j1 Joueur Homme ou femme 
+     */
+    public Tournoi(Joueur j1){
+         //Joueur tampon
+        this.premier_tour = new ArrayList<>();
+        this.premier_tour.add(j1);
+        if(j1.genre=='M'){
+            Joueur_Homme a;
+            for(int i=1;i<128;i++){
+                a=new Joueur_Homme('M',i);
+                this.premier_tour.add(a);
+            }     
+             
+        }
+        else if(j1.genre=='F'){
+            Joueur_Femme a;
+            for(int i=1;i<129;i++){
+                a=new Joueur_Femme('F',i);
+                this.premier_tour.add(a);
+            }     
+        }
+        this.arb=new ArrayList<>();
+        Arbitre b;
+        for (int i=0;i<10;i++){
+            b=new Arbitre('M');
+            this.arb.add(b);
+        }
+        
+        this.deuxieme_tour=new ArrayList<>();       
+        this.troisieme_tour=new ArrayList<>();   
+        this.huitieme_de_finale= new ArrayList<>();   
+        this.quart_de_finale= new ArrayList<>();   
+        this.demi_finale= new ArrayList<>();   
+        this.finale=new ArrayList<>();  
+        this.lieuTournoi=lieuT_random();
+        this.surface=surface_terrain(this.lieuTournoi);
+        System.out.println("Bienvenue au tournoi "+this.lieuTournoi+"se jouant sur "+this.surface);
+        presentation_joueurs_tournoi(this.premier_tour);
     }
     public String lieuT_random(){
         String lieuxT[]={"Paris","Londres","Melbourne","New York"};
@@ -107,6 +149,7 @@ public class Tournoi {
                 this.deuxieme_tour.add(this.matchs.vainqueur_match(automan,affichage));
             }
         }
+        presentation_joueurs_tournoi(this.deuxieme_tour);
         System.out.println("Sont qualifiés au 2e tour : ");
         for (int i=0;i<64;i++){
             System.out.println(this.deuxieme_tour.get(i).prenom+" "+this.deuxieme_tour.get(i).nomNaissance);
@@ -121,10 +164,12 @@ public class Tournoi {
         boolean automan;
         boolean affichage;
         int z;
+        presentation_joueurs_tournoi(this.deuxieme_tour);
         Scanner sc=new Scanner(System.in);
-        for(int i=0;i<64;i=i+2){
+        for(int i=0;i<this.deuxieme_tour.size();i=i+2){
             z=(int)(Math.random()*10);
-            this.matchs=new Match(this.deuxieme_tour.get(i),this.deuxieme_tour.get(i+1),arb.get(i),genre);
+            
+            this.matchs=new Match(this.deuxieme_tour.get(i),this.deuxieme_tour.get(i+1),arb.get(z),genre);
             automan=saisieAuto_Manuel(sc);
             if(automan){
                 affichage=saisie_affichage();
@@ -267,11 +312,11 @@ public class Tournoi {
         this.matchs=new Match(this.finale.get(0),this.finale.get(1),arb.get(z),genre);
         if(automan){
                 affichage=saisie_affichage();
-                this.finale.add(this.matchs.vainqueur_match(automan,affichage));
+                this.vainqueur=this.matchs.vainqueur_match(automan,affichage);
             }
             else{
                 affichage=true;
-                this.finale.add(this.matchs.vainqueur_match(automan,affichage));
+                this.vainqueur=this.matchs.vainqueur_match(automan,affichage);
             }
         
         System.out.println("Le vainqueur du tournoi de "+this.lieuTournoi+" est : "+this.vainqueur.nom_Prenom());
@@ -363,5 +408,65 @@ public boolean saisie_affichage(){
             return saisie_affichage();
         }
     }
+public static char interface_utilisateur(Scanner sc){
+    String saisie;
+    System.out.println("Bonjour et bienvenue à ce projet de Java Tennis ");
+    System.out.println("Réalisé par Baptiste Delpierre et Giovanni Haddadi");
+    System.out.println("Choisissez si vous voulez créer votre joueur ou simplement lancer un tournoi : ");
+    System.out.println("(C)réer Joueur");
+    System.out.println("Tournoi (H)ommes");
+    System.out.println("Tournoi (F)emmes");
+    saisie=sc.nextLine();
+        try{
+            if(!(saisie.compareTo("C")==0||saisie.compareTo("c")==0||saisie.compareTo("H")==0||saisie.compareTo("h")==0||saisie.compareTo("F")==0||saisie.compareTo("f")==0)){
+                throw new Exception("Veuillez saisir C,H ou F ");
+            }
+            else{
+                if(saisie.compareTo("C")==0||saisie.compareTo("c")==0){
+                    return 'C';
+                }
+                else if(saisie.compareTo("H")==0||saisie.compareTo("h")==0)
+                    return 'H';
+                
+                else {
+                    return 'F';
+            }
+            }
+        }
+        catch(Exception mauvaise_saisie) {
+            System.err.println(mauvaise_saisie.getMessage());
+            return interface_utilisateur(sc);
+        }
+    
+}
+public static void jeu(Scanner sc){
+    Tournoi grand_chelem_;
+    Joueur j1;
+    char c=interface_utilisateur(sc);
+    if (c=='H'||c=='h'){
+        j1= new Joueur(sc);
+        grand_chelem_=new Tournoi(j1);
+        grand_chelem_.tournoi_hommes();
+    }
+    else if(c=='F'||c=='f'){
+        grand_chelem_=new Tournoi('F');
+        grand_chelem_.tournoi_femmes();
+    }
+    else{
+        j1= new Joueur(sc);
+        grand_chelem_=new Tournoi(j1);
+        if(j1.genre=='M'||j1.genre=='m'){
+            grand_chelem_.tournoi_hommes();
+        }
+        else{
+            grand_chelem_.tournoi_femmes();
+        }
+    }
+}
+public  void presentation_joueurs_tournoi(ArrayList<Joueur> tour){
+    for(int i=0;i<tour.size();i++){
+        System.out.println(tour.get(i).prenom+" "+tour.get(i).nomNaissance);
+    }
+}
 }
 
