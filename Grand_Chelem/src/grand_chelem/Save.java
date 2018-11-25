@@ -28,10 +28,10 @@ import java.util.logging.Logger;
  * @author ISEN
  */
 public class Save {
-     public static void savePrenom(ArrayList<Joueur> tournoi){
+     public static void savePrenom(ArrayList<Joueur> tournoi,String savepath){
 try {
             char separator = ';';
-            File file = new File("D:\\Documents\\GitHub\\JavaTennis\\db\\prenom.txt"); // dÃ©finir l'arborescence
+            File file = new File(savepath+"\\prenom.txt"); // dÃ©finir l'arborescence
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -47,10 +47,10 @@ try {
             System.err.println("NE MARCHE PAS");
         }
     }
-      public static void saveNom(ArrayList<Joueur> tournoi){
+      public static void saveNom(ArrayList<Joueur> tournoi,String savepath){
 try {
             char separator = ';';
-            File file = new File("D:\\Documents\\GitHub\\JavaTennis\\db\\nom.txt"); // dÃ©finir l'arborescence
+            File file = new File(savepath+"\\nom.txt"); // dÃ©finir l'arborescence
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -66,10 +66,10 @@ try {
             System.err.println("NE MARCHE PAS");
         }
     } 
-      public static void saveGenre(ArrayList<Joueur> tournoi){
+      public static void saveGenre(ArrayList<Joueur> tournoi,String savepath){
 try {
             char separator = ';';
-            File file = new File("D:\\Documents\\GitHub\\JavaTennis\\db\\genre.txt"); // dÃ©finir l'arborescence
+            File file = new File(savepath+"\\genre.txt"); // dÃ©finir l'arborescence
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -85,11 +85,11 @@ try {
             System.err.println("NE MARCHE PAS");
         }
     }
-       public static void saveDate(ArrayList<Joueur> tournoi){
+       public static void saveDate(ArrayList<Joueur> tournoi,String savepath){
 try {
             char separator = ';';
             char sepdate='/';
-            File file = new File("D:\\Documents\\GitHub\\JavaTennis\\db\\date.txt"); // dÃ©finir l'arborescence
+            File file = new File(savepath+"\\date.txt"); // dÃ©finir l'arborescence
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -109,10 +109,10 @@ try {
             System.err.println("NE MARCHE PAS");
         }
     }
-      public static void saveNationalite(ArrayList<Joueur> tournoi){
+      public static void saveNationalite(ArrayList<Joueur> tournoi,String savepath){
 try {
             char separator = ';';
-            File file = new File("D:\\Documents\\GitHub\\JavaTennis\\db\\nationalite.txt"); // dÃ©finir l'arborescence
+            File file = new File(savepath+"\\nationalite.txt"); // dÃ©finir l'arborescence
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -129,10 +129,10 @@ try {
             System.err.println("NE MARCHE PAS");
         }
     }
-      public static void saveTaille(ArrayList<Joueur> tournoi){
+      public static void saveTaille(ArrayList<Joueur> tournoi,String savepath){
 try {
             char separator = ';';
-            File file = new File("D:\\Documents\\GitHub\\JavaTennis\\db\\taille.txt"); // dÃ©finir l'arborescence
+            File file = new File(savepath+"\\taille.txt"); // dÃ©finir l'arborescence
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -148,10 +148,10 @@ try {
         } catch (Exception e) {
             System.err.println("NE MARCHE PAS");
         }
-    }  public static void savePoids(ArrayList<Joueur> tournoi){
+    }  public static void savePoids(ArrayList<Joueur> tournoi,String savepath){
 try {
             char separator = ';';
-            File file = new File("D:\\Documents\\GitHub\\JavaTennis\\db\\poids.txt"); // dÃ©finir l'arborescence
+            File file = new File(savepath+"\\poids.txt"); // dÃ©finir l'arborescence
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -168,10 +168,10 @@ try {
             System.err.println("NE MARCHE PAS");
         } 
     }
-public static void saveMain(ArrayList<Joueur> tournoi){
+public static void saveMain(ArrayList<Joueur> tournoi,String savepath){
 try {
             char separator = ';';
-            File file = new File("D:\\Documents\\GitHub\\JavaTennis\\db\\main.txt"); // dÃ©finir l'arborescence
+            File file = new File(savepath+"\\main.txt"); // dÃ©finir l'arborescence
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -188,10 +188,10 @@ try {
             System.err.println("NE MARCHE PAS");
         }
     }
-      public static void saveCouleur(ArrayList<Joueur> tournoi){
+      public static void saveCouleur(ArrayList<Joueur> tournoi,String savepath){
 try {
             char separator = ';';
-            File file = new File("D:\\Documents\\GitHub\\JavaTennis\\db\\couleur.txt"); // dÃ©finir l'arborescence
+            File file = new File(savepath+"\\couleur.txt"); // dÃ©finir l'arborescence
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -208,15 +208,15 @@ try {
             System.err.println("NE MARCHE PAS");
         }
     }
-     public static void saveJoueurs(ArrayList<Joueur> tournoi){
-         savePrenom(tournoi);
-         saveNom(tournoi);
-         saveGenre(tournoi);
-         saveDate(tournoi);
-         saveNationalite(tournoi);
-         saveTaille(tournoi);
-         savePoids(tournoi);
-         saveMain(tournoi);
-         saveCouleur(tournoi);
+     public static void saveJoueurs(ArrayList<Joueur> tournoi,String savepath){
+         savePrenom(tournoi,savepath);
+         saveNom(tournoi,savepath);
+         saveGenre(tournoi,savepath);
+         saveDate(tournoi,savepath);
+         saveNationalite(tournoi,savepath);
+         saveTaille(tournoi,savepath);
+         savePoids(tournoi,savepath);
+         saveMain(tournoi,savepath);
+         saveCouleur(tournoi,savepath);
      }
 }

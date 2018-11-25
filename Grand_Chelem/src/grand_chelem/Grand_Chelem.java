@@ -19,10 +19,13 @@ public class Grand_Chelem {
      */
     public static void main(String[] args)  {
         Scanner sc=new Scanner(System.in);
-        //Joueur c=new Joueur(sc);
+        /**
+         * Veuillez entrer le chemin du dossier dans lequel vous voulez sauvegarder vos joueurs
+         */
+        String savepath=new String("D:\\Documents\\GitHub\\JavaTennis\\db");
         Joueur_Homme a=new Joueur_Homme('M',1);
         Joueur_Homme b=new Joueur_Homme('M',1);
-        jeu(sc);
+        jeu(sc,savepath);
     }
     
 }

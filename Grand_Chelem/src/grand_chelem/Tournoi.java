@@ -33,7 +33,7 @@ public class Tournoi {
     String lieuTournoi;
     String surface;
     
-    public Tournoi(char genre) {
+    public Tournoi(char genre,String savepath) {
         //Joueur tampon
         if(genre=='M'){
             Joueur_Homme a;
@@ -67,13 +67,13 @@ public class Tournoi {
         this.lieuTournoi=lieuT_random();
         this.surface=surface_terrain(this.lieuTournoi);
         presentation_joueurs_tournoi(this.premier_tour);
-        demande_sauvegarde();
+        demande_sauvegarde(savepath);
     }
     /**
      * Constructor avec joueur de l'utilisateur
      * @param j1 Joueur Homme ou femme 
      */
-    public Tournoi(Joueur j1){
+    public Tournoi(Joueur j1,String savepath){
          //Joueur tampon
         this.premier_tour = new ArrayList<>();
         this.premier_tour.add(j1);
@@ -109,7 +109,7 @@ public class Tournoi {
         this.surface=surface_terrain(this.lieuTournoi);
         System.out.println("Bienvenue au tournoi "+this.lieuTournoi+"se jouant sur "+this.surface);
         presentation_joueurs_tournoi(this.premier_tour);
-        demande_sauvegarde();
+        demande_sauvegarde(savepath);
         
     }
     public String lieuT_random(){
@@ -412,6 +412,11 @@ public boolean saisie_affichage(){
             return saisie_affichage();
         }
     }
+/**
+ * Fonction d'interface avec l'utilisateur
+ * @param sc Scanner de saisie
+ * @return un caractère : H pour tournoi hommes, F pour tournoi femmes et C pour créer un joueur
+ */
 public static char interface_utilisateur(Scanner sc){
     String saisie;
     System.out.println("Bonjour et bienvenue à ce projet de Java Tennis ");
@@ -443,20 +448,24 @@ public static char interface_utilisateur(Scanner sc){
         }
     
 }
-public static void jeu(Scanner sc){
+/**
+ * Fonction de redirection en fonction du choix de l'utilisateur
+ * @param sc Scanner de saisie
+ */
+public static void jeu(Scanner sc,String savepath){
     Tournoi grand_chelem_;
     char c=interface_utilisateur(sc);
     if (c=='H'||c=='h'){
-        grand_chelem_=new Tournoi('M');
+        grand_chelem_=new Tournoi('M',savepath);
         grand_chelem_.tournoi_hommes();
     }
     else if(c=='F'||c=='f'){
-        grand_chelem_=new Tournoi('F');
+        grand_chelem_=new Tournoi('F',savepath);
         grand_chelem_.tournoi_femmes();
     }
     else{
        Joueur j1= new Joueur(sc);
-        grand_chelem_=new Tournoi(j1);
+        grand_chelem_=new Tournoi(j1,savepath);
         if(j1.genre=='M'||j1.genre=='m'){
             grand_chelem_.tournoi_hommes();
         }
@@ -465,12 +474,19 @@ public static void jeu(Scanner sc){
         }
     }
 }
+/**
+ * Fonction d'affichage des joueurs du tournoi
+ * @param tour Liste des joueurs
+ */
 public  void presentation_joueurs_tournoi(ArrayList<Joueur> tour){
     for(int i=0;i<tour.size();i++){
         System.out.println(tour.get(i).prenom+" "+tour.get(i).nomNaissance);
     }
 }
-public void demande_sauvegarde(){
+/**
+ * Fonction qui demande à l'utilisateur s'il veut sauvegarder ses joueurs
+ */
+public void demande_sauvegarde(String savepath){
         Scanner sc =new Scanner(System.in);
         System.out.println("Voulez vous sauvegarder les joueurs ?");
         System.out.println("(O)ui");
@@ -482,7 +498,7 @@ public void demande_sauvegarde(){
             }
             else{
                 if((saisie.compareTo("o")==0||saisie.compareTo("O")==0)){
-                    saveJoueurs(this.premier_tour);
+                    saveJoueurs(this.premier_tour,savepath);
                     System.out.println("Joueurs sauvegardés !");
                 }
             }
