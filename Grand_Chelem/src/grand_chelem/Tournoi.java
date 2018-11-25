@@ -5,6 +5,7 @@
  */
 package grand_chelem;
 
+import static grand_chelem.Save.saveJoueurs;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -66,6 +67,7 @@ public class Tournoi {
         this.lieuTournoi=lieuT_random();
         this.surface=surface_terrain(this.lieuTournoi);
         presentation_joueurs_tournoi(this.premier_tour);
+        demande_sauvegarde();
     }
     /**
      * Constructor avec joueur de l'utilisateur
@@ -107,6 +109,8 @@ public class Tournoi {
         this.surface=surface_terrain(this.lieuTournoi);
         System.out.println("Bienvenue au tournoi "+this.lieuTournoi+"se jouant sur "+this.surface);
         presentation_joueurs_tournoi(this.premier_tour);
+        demande_sauvegarde();
+        
     }
     public String lieuT_random(){
         String lieuxT[]={"Paris","Londres","Melbourne","New York"};
@@ -441,11 +445,9 @@ public static char interface_utilisateur(Scanner sc){
 }
 public static void jeu(Scanner sc){
     Tournoi grand_chelem_;
-    Joueur j1;
     char c=interface_utilisateur(sc);
     if (c=='H'||c=='h'){
-        j1= new Joueur(sc);
-        grand_chelem_=new Tournoi(j1);
+        grand_chelem_=new Tournoi('M');
         grand_chelem_.tournoi_hommes();
     }
     else if(c=='F'||c=='f'){
@@ -453,7 +455,7 @@ public static void jeu(Scanner sc){
         grand_chelem_.tournoi_femmes();
     }
     else{
-        j1= new Joueur(sc);
+       Joueur j1= new Joueur(sc);
         grand_chelem_=new Tournoi(j1);
         if(j1.genre=='M'||j1.genre=='m'){
             grand_chelem_.tournoi_hommes();
@@ -467,6 +469,27 @@ public  void presentation_joueurs_tournoi(ArrayList<Joueur> tour){
     for(int i=0;i<tour.size();i++){
         System.out.println(tour.get(i).prenom+" "+tour.get(i).nomNaissance);
     }
+}
+public void demande_sauvegarde(){
+        Scanner sc =new Scanner(System.in);
+        System.out.println("Voulez vous sauvegarder les joueurs ?");
+        System.out.println("(O)ui");
+        System.out.println("(N)on");
+        String saisie=sc.nextLine();
+        try{
+            if(!(saisie.compareTo("o")==0||saisie.compareTo("O")==0)||(saisie.compareTo("n")==0||saisie.compareTo("N")==0)){
+                throw new Exception("Veuillez saisir O ou N ");
+            }
+            else{
+                if((saisie.compareTo("o")==0||saisie.compareTo("O")==0)){
+                    saveJoueurs(this.premier_tour);
+                    System.out.println("Joueurs sauvegardés !");
+                }
+            }
+        }
+        catch(Exception e){
+            System.err.println(e.getMessage());
+        }
 }
 }
 

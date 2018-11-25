@@ -50,10 +50,10 @@ public class Joueur extends Personne
     }
     public Joueur(Scanner sc){
         super(sc);
-        saisieMain(sc);
-        saisieSponsor(sc);
-        saisieEntraineur(sc);
-        saisieCouleur(sc);
+        this.main=saisieMain(sc);
+        this.sponsor=saisieSponsor(sc);
+        this.entraineur=saisieEntraineur(sc);
+        this.couleur=saisieCouleur(sc);
         this.PresentationJoueur();
         this.stats=new Stats_joueur();
     }
